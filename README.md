@@ -7,6 +7,10 @@ a printable version of the product with all of its customizations for the consum
 
 ## Configuration Options
 
+All configuration options are in the configuration directory in the file option.configuration.php
+
+Development Mode true|false
+This will enable or disable development mode.
 
 ## Directory Structure
 
