@@ -29,10 +29,11 @@
 
 
     include_once( CANVAS_LAYOUT_DIRECTORY.'container.layout.php' );
-    include_once( CANVAS_LAYOUT_DIRECTORY.'canvas.layout.php' );
+    include_once( CANVAS_LAYOUT_DIRECTORY.'canvasArea.layout.php' );
+    include_once( CANVAS_LAYOUT_DIRECTORY.'titleArea.layout.php' );
+    include_once( CANVAS_LAYOUT_DIRECTORY.'palletArea.layout.php' );
     include_once( CANVAS_LAYOUT_DIRECTORY.'group.layout.php' );
     include_once( CANVAS_LAYOUT_DIRECTORY.'option.layout.php' );
-    include_once( CANVAS_LAYOUT_DIRECTORY.'pallet.layout.php' );
     include_once( CANVAS_LAYOUT_DIRECTORY.'product.layout.php' );
 
   }

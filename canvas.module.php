@@ -33,14 +33,17 @@
       private static $cssTag = '<link href="%s" rel="stylesheet" />'.PHP_EOL;
       /** @var array $cssFiles An array of the css files */
       private static $cssFiles = [
+        'https://fonts.googleapis.com/css?family=Open+Sans',
         'style/container.css',
         'style/canvas.css',
-        'style/pallet.css'
+        'style/pallet.css',
+        'style/title.css'
       ];
       /** @var string $javascriptTag The javascript tag string we can use sprintf to build a javascript tag */
       private static $javascriptTag = '<script src="%s" type="text/javascript"></script>'.PHP_EOL;
       /** @var array $javascriptFiles An array of the javascript files */
       private static $javascriptFiles = [
+        'https://use.fontawesome.com/637b859a5b.js',
         'javascript/canvas.js'
       ];
 

@@ -1,0 +1,37 @@
+#canvasTitleID{
+  width:                            996px;
+  height:                           35px;
+  background:                       #2861b6;
+  border-bottom:                    2px solid #2a2d32;
+  -webkit-box-shadow:               inset 3px 3px 10px 0px rgba(0,0,0,0.40);
+  -moz-box-shadow:                  inset 3px 3px 10px 0px rgba(0,0,0,0.40);
+  box-shadow:                       inset 3px 3px 10px 0px rgba(0,0,0,0.40);
+}
+
+#canvasTitleID h1, h2{
+  line-height:                      33px;
+  height:                           35px;
+  color:                            white;
+  display:                          inline-block;
+  text-shadow:                      1px 2px 3px #505256, 0 0 0 #000, 1px 2px 3px #505256;
+}
+
+#canvasTitleID h1{
+  width:                            740px;
+  padding:                          0px 0px 0px 10px;
+  font-size:                        19px;
+  background:                       #1d4073;
+  border-right:                     2px solid #2a2d32;
+  -webkit-border-top-right-radius:  15px;
+  -moz-border-radius-topright:      15px;
+  border-top-right-radius:          15px;
+  -webkit-box-shadow:               inset 3px 3px 10px 0px rgba(0,0,0,0.40);
+  -moz-box-shadow:                  inset 3px 3px 10px 0px rgba(0,0,0,0.40);
+  box-shadow:                       inset 3px 3px 10px 0px rgba(0,0,0,0.40);
+}
+
+#canvasTitleID h2{
+  width:                            242px;
+  font-size:                        17px;
+  text-align:                       center;
+}
