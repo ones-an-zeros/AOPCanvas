@@ -10,6 +10,7 @@
     <title>Canvas Example</title>
     <?=\Canvas\Canvas::css()?>
     <?=\Canvas\Canvas::javascript()?>
+    <?=\Canvas\Canvas::javascriptOnReady()?>
   </head>
   <body>
     <section id="container">

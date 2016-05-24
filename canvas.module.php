@@ -44,8 +44,12 @@
       /** @var array $javascriptFiles An array of the javascript files */
       private static $javascriptFiles = [
         'https://use.fontawesome.com/637b859a5b.js',
+        'https://code.jquery.com/jquery-1.12.4.min.js',
+        'javascript/pallet.object.js',
         'javascript/canvas.js'
       ];
+      /** @var string $onReady The javascript tag string we can use for the onload */
+      private static $onReady = '<script type="text/javascript">$(document).ready(function(){ %s });</script>';
 
       /** *********************************************************************************************************** */
       /**                                                  METHODS                                                    */
@@ -78,6 +82,22 @@
       }
 
       /**
+       * Javascript On Ready
+       *
+       * This function will load all of the javascript that needs to run on
+       * document ready.
+       *
+       * @method  javascriptOnReady
+       * @return  string
+       * @access  public
+       * @static
+       */
+      public static function javascriptOnReady()
+      {
+        return sprintf( self::$onReady, 'CanvasPallet.initialize();' );
+      }
+
+      /**
        * Javascript
        *
        * This method builds and returns all of the javascript tags
@@ -89,7 +109,13 @@
        */
       public static function javascript()
       {
-        return self::buildTags( self::$javascriptFiles, self::$javascriptTag );
+        $html = self::buildTags( self::$javascriptFiles, self::$javascriptTag );
+        /** Check if we are in development mode */
+        if( CANVAS_DEVELOPMENT_MODE ){
+          /** Append the development javascript files */
+          $html .= self::buildTags( ['javascript/development.object.js'], self::$javascriptTag );
+        }
+        return $html;
       }
 
       /**
@@ -143,10 +169,7 @@
       {
 
 
-
-
       }
-
 
       /** *********************************************************************************************************** */
       /**                                               SINGLETON                                                     */

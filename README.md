@@ -43,7 +43,7 @@ style | These are all the style sheets used to make make the editor
 ### How to get the Javascript Files
 ```php
 <?php
-  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); 
+  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPARATOR."canvas.module.php"); 
 ?>
 <html>
   <head>
@@ -58,7 +58,7 @@ style | These are all the style sheets used to make make the editor
 ### How to get the CSS Files
 ```php
 <?php
-  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
+  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPARATOR."canvas.module.php");
 ?>
 <html>
   <head>
@@ -70,25 +70,26 @@ style | These are all the style sheets used to make make the editor
   </body>
 </html>
 ```
-### Render the Editor 
+### How to get the Javascript on document ready
 ```php
 <?php
-  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
+  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPARATOR."canvas.module.php");
 ?>
 <html>
   <head>
-    <title>The Editor</title>
+    <title>Including the CSS</title>
+    <?=\Canvas\Canvas::javascript()?>
+    <?=\Canvas\Canvas::javascriptOnReady()?>
   </head>
   <body>
-    <h1>The Editor</h1>
-    <?=$canvasModule::render([])?>
+    <h1>The javascript on load functions will now run</h1>
   </body>
 </html>
 ```
-### All of it together
+### Render the Editor 
 ```php
 <?php
-  include_once('canvas.module.php');
+  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPARATOR."canvas.module.php");
   $canvasModule = \Canvas\Canvas::getInstance();
 ?>
 <!DOCTYPE html>
@@ -99,6 +100,7 @@ style | These are all the style sheets used to make make the editor
     <title>Canvas Example</title>
     <?=\Canvas\Canvas::css()?>
     <?=\Canvas\Canvas::javascript()?>
+    <?=\Canvas\Canvas::javascriptOnReady()?>
   </head>
   <body>
     <section id="container">
