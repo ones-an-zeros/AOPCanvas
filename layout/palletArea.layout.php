@@ -11,9 +11,11 @@ namespace Canvas
     /** @var string $html The html string to populate when making the html */
     private $html = '<section id="%s">%s</section>';
 
+    private $controlArea;
+
     public function __construct()
     {
-
+      $this->controlArea = new ControlArea();
     }
 
     public function __destruct()
@@ -54,7 +56,9 @@ namespace Canvas
             <li>Option 5</li>
           </ul>
         </li>
-      </ul>' );
+      </ul>'.
+        $this->controlArea->render()
+    );
     }
   }
 }

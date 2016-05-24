@@ -3,7 +3,7 @@ var CanvasPallet = {
   palletObject: null,
 
   initialize: function(){
-    alert('init');
+    
   }
 
 
