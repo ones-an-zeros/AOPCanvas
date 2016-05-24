@@ -9,19 +9,17 @@ a printable version of the product with all of its customizations for the consum
 90% of the work for setting up the canvas editor will be done here. From HTML IDs, Content Titles, Development mode
 color scheme, dimensions and a lot more is configurable
 
-### Include
-Option | Options | Explanation
---- | --- | ---
-Development Mode | true / False | This puts the editor in development mode
-
 ### Define
 Option | Options | Explanation
 --- | --- | ---
+CANVAS_ROOT | string | Path to the root canvas module directory
+CANVAS_CONFIGURATION_DIRECTORY | string | Path to the canvas module configuration directory
+CANVAS_LAYOUT_DIRECTORY | string | Path to the canvas module layout directory
 
 ### Options 
 Option | Options | Explanation
 --- | --- | ---
-Development Mode | true / False | This puts the editor in development mode
+Development Mode | true / false | This puts the editor in development mode
 
 ### Layout
 Option | Options | Explanation
