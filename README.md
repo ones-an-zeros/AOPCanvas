@@ -24,7 +24,7 @@ Directory | Description
 ## Examples
 ### How to get the Javascript Files
 ```php
-<?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
+<?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); ?>
 <html>
   <head>
     <title>Including the javascript</title>
