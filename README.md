@@ -11,7 +11,7 @@ color scheme, dimensions and a lot more is configurable
 
 ### Define
 Option | Type | Explanation
---- | :---: | ---
+:--- | :---: | ---
 CANVAS_ROOT | string | Path to the root canvas module directory
 CANVAS_CONFIGURATION_DIRECTORY | string | Path to the canvas module configuration directory
 CANVAS_LAYOUT_DIRECTORY | string | Path to the canvas module layout directory
