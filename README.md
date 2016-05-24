@@ -23,15 +23,41 @@ Directory | Description
 
 ## Examples
 ### How to get the Javascript Files
-```php
+```
 <?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); ?>
 <html>
   <head>
     <title>Including the javascript</title>
-    <?=\Canvas\Canvas::css()?>
+    <?=\Canvas\Canvas::javascript()?>
   </head>
   <body>
     <h1>The javascript was included </h1>
+  </body>
+</html>
+```
+### How to get the CSS Files
+```
+<?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); ?>
+<html>
+  <head>
+    <title>Including the CSS</title>
+    <?=\Canvas\Canvas::css()?>
+  </head>
+  <body>
+    <h1>The CSS was included </h1>
+  </body>
+</html>
+```
+### Render the Editor
+```
+<?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); ?>
+<html>
+  <head>
+    <title>The Editor</title>
+  </head>
+  <body>
+    <h1>The Editor</h1>
+    <?=$canvasModule::render([])?>
   </body>
 </html>
 ```
