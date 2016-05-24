@@ -5,15 +5,31 @@ return an editor, allowing the end user to make alterations and customizations t
 the canvas program will return a JSON object describing the product in detail so that Admit One Products can create
 a printable version of the product with all of its customizations for the consumer!
 
-## Configuration Options
+## Configuration
+90% of the work for setting up the canvas editor will be done here. From HTML IDs, Content Titles, Development mode
+color scheme, dimensions and a lot more is configurable
 
-All configuration options are in the configuration directory in the file option.configuration.php
+### Include
+Option | Options | Explanation
+--- | --- | ---
+Development Mode | true / False | This puts the editor in development mode
 
-Development Mode true|false
-This will enable or disable development mode.
+### Define
+Option | Options | Explanation
+--- | --- | ---
+
+### Options 
+Option | Options | Explanation
+--- | --- | ---
+Development Mode | true / False | This puts the editor in development mode
+
+### Layout
+Option | Options | Explanation
+--- | --- | ---
+
 
 ## Directory Structure
-Directory | Description
+Directory | Description 
 --- | --- 
 `configuration` | All configurable files
 `data` | Not Defined
