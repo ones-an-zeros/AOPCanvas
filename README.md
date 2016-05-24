@@ -10,7 +10,7 @@ a printable version of the product with all of its customizations for the consum
 color scheme, dimensions and a lot more is configurable
 
 ### Define
-Option | Options | Explanation
+Option | Type | Explanation
 --- | :---: | ---
 CANVAS_ROOT | string | Path to the root canvas module directory
 CANVAS_CONFIGURATION_DIRECTORY | string | Path to the canvas module configuration directory
