@@ -14,13 +14,13 @@ This will enable or disable development mode.
 
 ## Directory Structure
 
-configuration: All configurable files
+`configuration`: All configurable files
 
 data
 
-documentation: PHPDocumentor will generate all of its documentation here
+`documentation`: PHPDocumentor will generate all of its documentation here
 
-layout: These files are used to create the basic layout for the editor
+`layout`: These files are used to create the basic layout for the editor
 
-style: These are all the style sheets used to make make the editor
+`style`: These are all the style sheets used to make make the editor
 
