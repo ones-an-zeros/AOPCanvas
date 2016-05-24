@@ -31,11 +31,11 @@ Option | Options | Explanation
 ## Directory Structure
 Directory | Description 
 --- | --- 
-`configuration` | All configurable files
-`data` | Not Defined
-`documentation` | PHPDocumentor will generate all of its documentation here
-`layout` | These files are used to create the basic layout for the editor
-`style` | These are all the style sheets used to make make the editor
+configuration | All configurable files
+data | Not Defined
+documentation | PHPDocumentor will generate all of its documentation here
+layout | These files are used to create the basic layout for the editor
+style | These are all the style sheets used to make make the editor
 
 ## Examples
 ### How to get the Javascript Files
