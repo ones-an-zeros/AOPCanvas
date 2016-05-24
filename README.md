@@ -48,7 +48,7 @@ Directory | Description
   </body>
 </html>
 ```
-### Render the Editor
+### Render the Editor 
 ```
 <?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); ?>
 <html>
