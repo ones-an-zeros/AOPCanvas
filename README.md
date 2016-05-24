@@ -23,8 +23,9 @@ Directory | Description
 
 ## Examples
 ### How to get the Javascript Files
-```
-<?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); ?>
+```php
+include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); 
+?>
 <html>
   <head>
     <title>Including the javascript</title>
@@ -36,8 +37,9 @@ Directory | Description
 </html>
 ```
 ### How to get the CSS Files
-```
-<?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); ?>
+```php
+include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
+?>
 <html>
   <head>
     <title>Including the CSS</title>
@@ -49,8 +51,9 @@ Directory | Description
 </html>
 ```
 ### Render the Editor 
-```
-<?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); ?>
+```php
+include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
+?>
 <html>
   <head>
     <title>The Editor</title>
