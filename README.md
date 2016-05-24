@@ -24,7 +24,8 @@ Directory | Description
 ## Examples
 ### How to get the Javascript Files
 ```php
-include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); 
+<?php
+  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php"); 
 ?>
 <html>
   <head>
@@ -38,7 +39,8 @@ include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
 ```
 ### How to get the CSS Files
 ```php
-include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
+<?php
+  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
 ?>
 <html>
   <head>
@@ -52,7 +54,8 @@ include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
 ```
 ### Render the Editor 
 ```php
-include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
+<?php
+  include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
 ?>
 <html>
   <head>
@@ -61,6 +64,36 @@ include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
   <body>
     <h1>The Editor</h1>
     <?=$canvasModule::render([])?>
+  </body>
+</html>
+```
+### All of it together
+```php
+<?php
+  include_once('canvas.module.php');
+  $canvasModule = \Canvas\Canvas::getInstance();
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0">
+    <title>Canvas Example</title>
+    <?=\Canvas\Canvas::css()?>
+    <?=\Canvas\Canvas::javascript()?>
+  </head>
+  <body>
+    <section id="container">
+      <header>
+        <h1>Canvas Example</h1>
+      </header>
+      <section id="content">
+        <?=$canvasModule::render([])?>
+      </section>
+      <footer>
+        Admit One Products &copy; 2016
+      </footer>
+    </section>
   </body>
 </html>
 ```
