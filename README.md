@@ -13,14 +13,27 @@ Development Mode true|false
 This will enable or disable development mode.
 
 ## Directory Structure
+Directory | Description
+--- | --- 
+`configuration` | All configurable files
+`data` | Not Defined
+`documentation` | PHPDocumentor will generate all of its documentation here
+`layout` | These files are used to create the basic layout for the editor
+`style` | These are all the style sheets used to make make the editor
 
-`configuration`: All configurable files
+## Examples
+### How to get the Javascript Files
+```php
+<?php include_once(MODULE_DIRECTORY."Canvas".DIRECTORY_SEPERATOR."canvas.module.php");
+<html>
+  <head>
+    <title>Including the javascript</title>
+    <?=\Canvas\Canvas::css()?>
+  </head>
+  <body>
+    <h1>The javascript was included </h1>
+  </body>
+</html>
+```
 
-data
-
-`documentation`: PHPDocumentor will generate all of its documentation here
-
-`layout`: These files are used to create the basic layout for the editor
-
-`style`: These are all the style sheets used to make make the editor
 
