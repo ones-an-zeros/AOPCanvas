@@ -17,13 +17,17 @@ CANVAS_CONFIGURATION_DIRECTORY | string | Path to the canvas module configuratio
 CANVAS_LAYOUT_DIRECTORY | string | Path to the canvas module layout directory
 
 ### Options 
-Option | Options | Explanation
---- | --- | ---
-Development Mode | true / false | This puts the editor in development mode
+Option | Type | Explanation
+:--- | :---: | ---
+CANVAS_DEVELOPMENT_MODE | boolean | This puts the editor in development mode
 
 ### Layout
-Option | Options | Explanation
---- | --- | ---
+Option | Type | Explanation
+:--- | :---: | ---
+CANVAS_CONTAINER_ID | string |  This is the ID for the main editor container
+CANVAS_TITLE_ID | string | This is the ID for the title area
+CANVAS_CANVAS_ID | string | This is the ID for the canvas area
+CANVAS_PALLET_ID | string | This is the ID for the pallet area
 
 
 ## Directory Structure
