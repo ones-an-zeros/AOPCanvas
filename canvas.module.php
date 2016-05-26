@@ -71,12 +71,11 @@
        * This will render the canvas interface
        *
        * @method  render
-       * @param   array   $data
        * @return  string
        * @access  public
        * @static
        */
-      public static function render( $data )
+      public static function render()
       {
         return self::getInstance()->container->render();
       }
@@ -164,6 +163,10 @@
       /**                                             CONFIGURATION                                                   */
       /** *********************************************************************************************************** */
 
+      public function load( $data )
+      {
+        $this->container->load( $data );
+      }
 
       private static function parseData( $data )
       {

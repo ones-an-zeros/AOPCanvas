@@ -1,6 +1,11 @@
 <?php
-  include_once('canvas.module.php');
+  include_once('../canvas.module.php');
+  /** @var object $productData Get the example data and store it */
+  $productData = json_decode( file_get_contents("data/productOne.json") );
+  /** @var \Canvas\Canvas $canvasModule An instance of the canvas object */
   $canvasModule = \Canvas\Canvas::getInstance();
+  /** Load the data into the canvas module object */
+  $canvasModule->load( $productData );
 ?>
 <!DOCTYPE html>
 <html lang="en">

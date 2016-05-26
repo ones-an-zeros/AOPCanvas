@@ -28,19 +28,19 @@
     /** *********************************************************************************************************** */
 
     /** Main Editor container */
-    include_once( CANVAS_LAYOUT_DIRECTORY.'container.layout.php' );
+    include_once( CANVAS_LAYOUT_DIRECTORY.'editor.object.php' );
     /** Title bar object */
-    include_once( CANVAS_LAYOUT_DIRECTORY.'titleArea.layout.php' );
+    include_once( CANVAS_LAYOUT_DIRECTORY.'title.area.php' );
     /** Canvas area container object */
-    include_once( CANVAS_LAYOUT_DIRECTORY.'canvasArea.layout.php' );
+    include_once( CANVAS_LAYOUT_DIRECTORY.'canvas.area.php' );
     /** The product canvas object */
     include_once( CANVAS_LAYOUT_DIRECTORY.'productCanvas.layout.php' );
     /** Pallet Area object */
-    include_once( CANVAS_LAYOUT_DIRECTORY.'palletArea.layout.php' );
+    include_once( CANVAS_LAYOUT_DIRECTORY.'pallet.area.php' );
     /** Pallet Group object */
     include_once( CANVAS_LAYOUT_DIRECTORY.'group.layout.php' );
     /** Pallet Option Object */
     include_once( CANVAS_LAYOUT_DIRECTORY.'option.layout.php' );
     /** Pallet Control Area container */
-    include_once( CANVAS_LAYOUT_DIRECTORY.'controlArea.layout.php' );
+    include_once( CANVAS_LAYOUT_DIRECTORY.'control.area.php' );
   }
