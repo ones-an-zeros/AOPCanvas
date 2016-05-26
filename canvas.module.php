@@ -12,6 +12,9 @@
 
   namespace Canvas
   {
+
+    use Canvas\Editor\Editor;
+
     /** *********************************************************************************************************** */
     /**                                                  INCLUDES                                                   */
     /** *********************************************************************************************************** */
@@ -27,8 +30,8 @@
       /**                                                 VARIABLES                                                   */
       /** *********************************************************************************************************** */
 
-      /** @var \Canvas\Container $container The html container */
-      private $container;
+      /** @var \Canvas\Editor\Editor $editor The html container */
+      private $editor;
       /** @var string $cssTag The css tag string we can use sprintf to build a css tag */
       private static $cssTag = '<link href="%s" rel="stylesheet" />'.PHP_EOL;
       /** @var array $cssFiles An array of the css files */
@@ -57,8 +60,7 @@
 
       private function constructor()
       {
-        /** @var \Canvas\Container container This is the canvas html container object and sub objects */
-        $this->container = new container();
+
       }
 
       /** *********************************************************************************************************** */
@@ -71,13 +73,18 @@
        * This will render the canvas interface
        *
        * @method  render
+       * @param   array   $data
        * @return  string
        * @access  public
        * @static
        */
-      public static function render()
+      public static function render( $data )
       {
-        return self::getInstance()->container->render();
+        /** @var \Canvas\Canvas $instance The current instance of the Canvas object */
+        $instance = self::getInstance();
+        /** @var \Canvas\Editor\Editor editor The Editor object */
+        $instance->editor = new \Canvas\Editor\Editor( $data );
+        return $instance->editor->render();
       }
 
       /**
@@ -153,8 +160,9 @@
       private static function buildTags( $files, $tag )
       {
         $html = '';
+        $path = CANVAS_DEVELOPMENT_MODE ? CANVAS_DEVELOPMENT_URL : CANVAS_LIVE_URL;
         foreach( $files as $file ){
-          $html .= sprintf( $tag, $file );
+          $html .= sprintf( $tag, $path.$file );
         }
         return $html;
       }
@@ -163,10 +171,6 @@
       /**                                             CONFIGURATION                                                   */
       /** *********************************************************************************************************** */
 
-      public function load( $data )
-      {
-        $this->container->load( $data );
-      }
 
       private static function parseData( $data )
       {

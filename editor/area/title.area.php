@@ -9,7 +9,7 @@
    * @author Corey Rosamond <corey@ones-n-zeros.com>
    */
 
-  namespace Canvas
+  namespace Canvas\Editor\Area
   {
 
     /**

@@ -4,8 +4,6 @@
   $productData = json_decode( file_get_contents("data/productOne.json") );
   /** @var \Canvas\Canvas $canvasModule An instance of the canvas object */
   $canvasModule = \Canvas\Canvas::getInstance();
-  /** Load the data into the canvas module object */
-  $canvasModule->load( $productData );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +21,7 @@
         <h1>Canvas Example</h1>
       </header>
       <section id="content">
-        <?=$canvasModule::render([])?>
+        <?=$canvasModule::render( $productData )?>
       </section>
       <footer>
         Admit One Products &copy; 2016

@@ -1,4 +1,4 @@
-#canvasCanvasID{
+#canvasCanvasContainerID{
   width:                              750px;
   height:                             796px;
   display:                            inline-block;
@@ -10,7 +10,7 @@
   border-bottom-right-radius:         15px;
 }
 
-#canvasProductCanvasID{
+#canvasCanvasID{
   width:                              200px;
   height:                             400px;
   margin:                             150px auto 0px auto;

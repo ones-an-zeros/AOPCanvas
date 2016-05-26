@@ -2,8 +2,8 @@
   "key" :     1,
   "name" :    "Event Ticket",
   "price" :   10.99,
-  "width" :   100,
-  "height" :  300,
+  "width" :   200,
+  "height" :  400,
   "groups" : [
     {
       "key" :     0,
