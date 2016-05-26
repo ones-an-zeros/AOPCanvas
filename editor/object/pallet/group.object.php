@@ -23,9 +23,9 @@
       /**                          VARIABLES                            */
       /** ************************************************************* */
 
-      private $iconHTML = '<i class="fa fa-plus-square" aria-hidden="true"></i>';
+      private $iconHTML = '<i class="fa fa-plus-square" aria-hidden="true">&nbsp;</i>';
 
-      private $containerHTML = '<li id="%s" class="active">%s%s<ul>%s</ul></li>';
+      private $containerHTML = '<li id="%s" class="active">%s %s<ul>%s</ul></li>';
 
       private $containerID;
 
@@ -70,6 +70,7 @@
           $this->renderEditors()
         );
       }
+
 
       private function renderEditors()
       {

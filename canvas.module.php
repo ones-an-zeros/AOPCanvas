@@ -46,8 +46,8 @@
       private static $javascriptTag = '<script src="%s" type="text/javascript"></script>'.PHP_EOL;
       /** @var array $javascriptFiles An array of the javascript files */
       private static $javascriptFiles = [
-        'https://use.fontawesome.com/637b859a5b.js',
-        'https://code.jquery.com/jquery-1.12.4.min.js',
+        '//use.fontawesome.com/637b859a5b.js',
+        '//code.jquery.com/jquery-1.12.4.min.js',
         'javascript/pallet.object.js',
         'javascript/canvas.js'
       ];
@@ -162,7 +162,11 @@
         $html = '';
         $path = CANVAS_DEVELOPMENT_MODE ? CANVAS_DEVELOPMENT_URL : CANVAS_LIVE_URL;
         foreach( $files as $file ){
-          $html .= sprintf( $tag, $path.$file );
+          $fullpath = $path.$file;
+          if( substr( $file, 0, 2) === '//' ){
+            $fullpath = $file;
+          }
+          $html .= sprintf( $tag, $fullpath );
         }
         return $html;
       }

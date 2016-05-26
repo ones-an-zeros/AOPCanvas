@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "AOP Development"
+AuthUserFile /var/www/client/aop/.htpasswd
+Require valid-user

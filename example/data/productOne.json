@@ -27,6 +27,25 @@
               }
             }
           ]
+        },
+        {
+          "key" :   1,
+          "label" : "Event Name",
+          "parts" : [
+            {
+              "type" :        0,
+              "label" :       "Name",
+              "placeholder" : "Your Event Name",
+              "testValues" : {
+                "minLength": 5,
+                "maxLength": 15
+              },
+              "testMessages" : {
+                "minLength": "Your event name must be at least %s characters long!",
+                "maxLength": "Your event name must be no longer than %s characters long!"
+              }
+            }
+          ]
         }
       ]
     }

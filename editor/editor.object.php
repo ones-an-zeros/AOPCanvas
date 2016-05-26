@@ -11,7 +11,9 @@
 
   namespace Canvas\Editor
   {
-
+    /** ************************************************************* */
+    /**                         NAMESPACES                            */
+    /** ************************************************************* */
     use Canvas\Editor\Area\ControlArea;
     use Canvas\Editor\Area\PalletArea;
     use Canvas\Editor\Area\TitleArea;
@@ -109,7 +111,7 @@
        */
       public function render()
       {
-        echo sprintf(
+        return sprintf(
           $this->html,
           $this->id,
           $this->titleArea->render().
@@ -117,8 +119,6 @@
           $this->palletArea->render().
           $this->controlArea->render()
         );
-
-        return '<pre>'.print_r($this->palletArea, true).'</pre>';
       }
 
       /** ************************************************************* */

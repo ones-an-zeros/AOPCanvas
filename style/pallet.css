@@ -1,22 +1,27 @@
 #canvasPalletID{
-  width:              250px;
+  width:              244px;
   display:            inline-block;
   float:              left;
   margin:             0px -1000px 0px 750px;
   padding:            0px;
 }
 
+/** Not Active Not hover */
 #canvasPalletID ul{
-  width:              250px;
+  display:            block;
+  width:              244px;
   list-style-type:    none;
   margin:             0px;
   padding:            0px;
 }
 
 #canvasPalletID ul li{
+  width:              244px;
   height:             30px;
+  display:            block;
   background:         #f3f4f9;
-  padding:            0px 0px 0px 5px;
+  margin:             0px 0px 0px 0px;
+  padding:            0px 0px 0px 0px;
   color:              #4b4b4b;
   font-size:          16px;
   line-height:        29px;
@@ -28,23 +33,36 @@
   cursor:             pointer;
 }
 
-#canvasPalletID ul li:hover{
-  background:         #5F5F5F;
-  color:              white;
-  text-shadow:        0px 0px 0px #000, 0 0 0 #5F5F5F, 1px 0px 1px #000;
-  border-bottom:      2px solid #565555;
-}
-
-#canvasPalletID ul li i{
-  margin:             0px 5px 0px 0px;
-}
-
 #canvasPalletID ul li ul{
+  width:              244px;
   display:            none;
   visibility:         hidden;
+  margin:             0px 0px 0px 0px;
+  padding:            0px 0px 0px 0px;
 }
 
+#canvasPalletID ul li ul li{
+  width:              244px;
+  margin:             0px 0px 0px 0px;
+  padding:            0px 0px 0px 0px;
+}
+
+#canvasPalletID ul li ul li span:first-of-type{
+  padding:            0px 0px 0px 10px;
+}
+#canvasPalletID ul li ul li span:last-of-type{
+  display:            block;
+  padding:            0px 0px 0px 10px;
+}
+
+#canvasPalletID ul li ul li span:last-of-type label{
+  padding:            0px 5px 0px 0px;
+}
+
+/** Active */
 #canvasPalletID ul li.active{
+  width:              244px;
+  display:            block;
   height:             auto;
   background:         #4CAF50;
   color:              white;
@@ -55,15 +73,17 @@
 }
 
 #canvasPalletID ul li.active ul{
+  width:              244px;
   display:            block;
   visibility:         visible;
   background:         #f3f4f9;
-  padding:            0px 0px 0px 12px;
-  margin:             3px 0px 0px -5px;
+  padding:            0px 0px 0px 0px;
+  margin:             0px 0px 0px 0px;
 }
 
 #canvasPalletID ul li.active ul li{
-  height:             24px;
+  width:              244px;
+  display:            block;
   border-bottom:      0px;
   font-size:          14px;
   line-height:        24px;
@@ -74,10 +94,34 @@
   box-shadow:         inset 0px 0px 0px 0px rgba(0,0,0,0.55);
 }
 
+#canvasPalletID ul li.active ul li.active{
+  width:              244px;
+  display:            block;
+  height:             auto;
+  background:         #f3f4f9;
+  border-bottom:      1px dotted #565555;
+}
+
+/** Hover */
+#canvasPalletID ul li:hover{
+  background:         #5F5F5F;
+  color:              white;
+  text-shadow:        0px 0px 0px #000, 0 0 0 #5F5F5F, 1px 0px 1px #000;
+  border-bottom:      2px solid #565555;
+}
+
 #canvasPalletID ul li.active ul li:hover{
   color:              white;
   text-shadow:        0px 0px 0px #000, 0 0 0 #5F5F5F, 1px 0px 1px #000;
 }
+
+
+/** Extra */
+#canvasPalletID ul li i{
+  margin:             0px 5px 0px 0px;
+}
+
+
 
 /** Editor Controls */
 #canvasControlID{

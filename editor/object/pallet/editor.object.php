@@ -27,7 +27,7 @@
 
       private $label;
 
-      private $containerHTML = '<li id="%s">%s%s</li>';
+      private $containerHTML = '<li id="%s" class="active">%s%s</li>';
 
       private $labelHTML = '<span>%s</span>';
 
@@ -51,23 +51,39 @@
       /**                        BASE METHODS                           */
       /** ************************************************************* */
 
+      /**
+       * Editor constructor.
+       *
+       * This is the constructor for the editor object
+       *
+       * @method  __construct
+       * @param   resource      $editor
+       * @access  public
+       */
       public function __construct( $editor )
       {
-
+        /** Set the key value */
         $this->setKey( $editor->key );
-
+        /** Set the label value */
         $this->setLabel( $editor->label );
-
+        /** Set the container value */
         $this->setContainerID( null );
-
+        /** Set the button ID */
         $this->setButtonID( null );
-
+        /** Set the button text */
         $this->setButtonText( null );
-
+        /** Construct all the parts */
         $this->constructParts( $editor->parts );
-
       }
 
+      /**
+       * Editor destructor.
+       *
+       * This is the destructor for the editor object
+       *
+       * @method  __destruct
+       * @access  public
+       */
       public function __destruct()
       {
         unset(
@@ -85,16 +101,43 @@
       /**                           RENDERING                           */
       /** ************************************************************* */
 
+      /**
+       * Render
+       *
+       * This method does all the leg work to render this editor
+       *
+       * @method  render
+       * @return  string
+       * @access  public
+       */
       public function render()
       {
         return sprintf( $this->containerHTML, $this->getKey(), $this->renderLabel(), $this->renderEditor() );
       }
 
+      /**
+       * Render Label
+       *
+       * This function will generate the label html
+       *
+       * @method  renderLabel
+       * @return  string
+       * @access  private
+       */
       private function renderLabel()
       {
         return sprintf( $this->labelHTML, $this->getLabel() );
       }
 
+      /**
+       * Render Editor
+       *
+       * This method will generate all the html returned from the parts and return it
+       *
+       * @method  renderEditor
+       * @return  string
+       * @access  private
+       */
       private function renderEditor()
       {
         $editor = '';
@@ -104,6 +147,15 @@
         return sprintf( $this->editorHTML, $editor, $this->renderButton() );
       }
 
+      /**
+       * Render Button
+       *
+       * This method will generate the button html and return it
+       *
+       * @method  renderButton
+       * @return  string
+       * @access  private
+       */
       private function renderButton()
       {
         return sprintf( $this->buttonHTML, $this->getKey(), $this->getKey(), $this->getButtonText() );
@@ -113,26 +165,71 @@
       /**                            GETTERS                            */
       /** ************************************************************* */
 
+      /**
+       * Get Key
+       *
+       * Get the value of the key member
+       *
+       * @method  getKey
+       * @return  int
+       * @access  private
+       */
       private function getKey()
       {
         return $this->key;
       }
 
+      /**
+       * Get Label
+       *
+       * Get the value of the Label member
+       *
+       * @method  getLabel
+       * @return  int
+       * @access  private
+       */
       private function getLabel()
       {
         return $this->label;
       }
 
+      /**
+       * Get ContainerID
+       *
+       * Get the value of the ContainerID member
+       *
+       * @method  getContainerID
+       * @return  int
+       * @access  private
+       */
       private function getContainerID()
       {
         return $this->containerID;
       }
 
+      /**
+       * Get ButtonID
+       *
+       * Get the value of the ButtonID member
+       *
+       * @method  getButtonID
+       * @return  int
+       * @access  private
+       */
       private function getButtonID()
       {
         return $this->buttonID;
       }
 
+      /**
+       * Get ButtonText
+       *
+       * Get the value of the ButtonText member
+       *
+       * @method  getButtonText
+       * @return  int
+       * @access  private
+       */
       private function getButtonText()
       {
         return $this->buttonText;
@@ -142,6 +239,14 @@
       /**                            SETTERS                            */
       /** ************************************************************* */
 
+      /**
+       * Set Key
+       *
+       * Set the value of the Key member
+       *
+       * @method  setKey
+       * @access  private
+       */
       private function setKey( $key = null )
       {
         if( $key === null ){
@@ -150,6 +255,14 @@
         $this->key = $key;
       }
 
+      /**
+       * Set Label
+       *
+       * Set the value of the Label member
+       *
+       * @method  setLabel
+       * @access  private
+       */
       private function setLabel( $label = null )
       {
         if( $label === null ){
@@ -158,6 +271,14 @@
         $this->label = $label;
       }
 
+      /**
+       * Set ContainerID
+       *
+       * Set the value of the ContainerID member
+       *
+       * @method  setContainerID
+       * @access  private
+       */
       private function setContainerID( $ID = null )
       {
         if( $ID === null ){
@@ -166,6 +287,14 @@
         $this->containerID = $ID;
       }
 
+      /**
+       * Set ButtonID
+       *
+       * Set the value of the ButtonID member
+       *
+       * @method  setButtonID
+       * @access  private
+       */
       private function setButtonID( $ID = null )
       {
         if( $ID === null ){
@@ -174,6 +303,14 @@
         $this->buttonID = $ID;
       }
 
+      /**
+       * Set ButtonText
+       *
+       * Set the value of the ButtonText member
+       *
+       * @method  setButtonText
+       * @access  private
+       */
       private function setButtonText( $text = null )
       {
         if( $text === null ){
@@ -193,7 +330,6 @@
         }
       }
 
-
       private function editorIDString()
       {
         return "Editor:{$this->key}";
@@ -210,41 +346,3 @@
       }
     }
   }
-
-/**
- * $this->key = $parameters['key'];
-
-$this->label = $parameters['label'];
-
-$this->buttonText = $parameters['buttonText'];
-
-foreach( $parameters['parts'] as $editorData ){
-$editorClass = $this->partClasses[$editorData['partKey']];
-$this->parts[] = new $editorClass();
-}
- *
- * public function getEditor()
-{
-
-$content = '';
-
-foreach( $this->parts as $part ){
-
-  $content .= $part->getEditor();
-}
-
-$button = sprintf(
-  $this->button,
-  $this->buttonIDString(),
-  $this->buttonNameString(),
-  $this->buttonText
-);
-
-return sprintf(
-  $this->container,
-  $this->editorIDString(),
-  $content,
-  $button
-);
-}
- */
