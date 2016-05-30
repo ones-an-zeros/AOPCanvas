@@ -22,15 +22,18 @@
     include_once('configuration/include.configuration.php');
 
 
-
+    /**
+     * Class Canvas
+     *
+     * @package Canvas
+     */
     class Canvas
     {
-
       /** *********************************************************************************************************** */
       /**                                                 VARIABLES                                                   */
       /** *********************************************************************************************************** */
 
-      /** @var \Canvas\Editor\Editor $editor The html container */
+      /** @var Editor $editor The html container */
       private $editor;
       /** @var string $cssTag The css tag string we can use sprintf to build a css tag */
       private static $cssTag = '<link href="%s" rel="stylesheet" />'.PHP_EOL;
@@ -55,7 +58,18 @@
       private static $onReady = '<script type="text/javascript">$(document).ready(function(){ %s });</script>';
 
       /** *********************************************************************************************************** */
-      /**                                                  METHODS                                                    */
+      /**                                                OBJECTS                                                      */
+      /** *********************************************************************************************************** */
+
+      private $log;
+
+      private $styleBuilder;
+
+      private $scriptBuilder;
+
+
+      /** *********************************************************************************************************** */
+      /**                                                METHODS                                                      */
       /** *********************************************************************************************************** */
 
       private function constructor()
@@ -80,11 +94,15 @@
        */
       public static function render( $data )
       {
-        /** @var \Canvas\Canvas $instance The current instance of the Canvas object */
-        $instance = self::getInstance();
-        /** @var \Canvas\Editor\Editor editor The Editor object */
-        $instance->editor = new \Canvas\Editor\Editor( $data );
-        return $instance->editor->render();
+        try{
+          /** @var \Canvas\Canvas $instance The current instance of the Canvas object */
+          $instance = self::getInstance();
+          /** @var Editor editor The Editor object */
+          $instance->editor = new Editor( $data );
+          return $instance->editor->render();
+        } catch ( \Exception $exception ){
+          echo '<pre>'.print_r($exception,true).'</pre>';
+        }
       }
 
       /**
@@ -100,7 +118,11 @@
        */
       public static function javascriptOnReady()
       {
-        return sprintf( self::$onReady, 'CanvasPallet.initialize();' );
+        try {
+          return sprintf (self::$onReady, 'CanvasPallet.initialize();');
+        } catch ( \Exception $exception ){
+          echo '<pre>'.print_r($exception,true).'</pre>';
+        }
       }
 
       /**
@@ -115,13 +137,17 @@
        */
       public static function javascript()
       {
-        $html = self::buildTags( self::$javascriptFiles, self::$javascriptTag );
-        /** Check if we are in development mode */
-        if( CANVAS_DEVELOPMENT_MODE ){
-          /** Append the development javascript files */
-          $html .= self::buildTags( ['javascript/development.object.js'], self::$javascriptTag );
+        try {
+          $html = self::buildTags (self::$javascriptFiles, self::$javascriptTag);
+          /** Check if we are in development mode */
+          if (CANVAS_DEVELOPMENT_MODE) {
+            /** Append the development javascript files */
+            $html .= self::buildTags (['javascript/development.object.js'], self::$javascriptTag);
+          }
+          return $html;
+        } catch ( \Exception $exception ){
+          echo '<pre>'.print_r($exception,true).'</pre>';
         }
-        return $html;
       }
 
       /**
@@ -136,13 +162,17 @@
        */
       public static function css()
       {
-        $html = self::buildTags( self::$cssFiles, self::$cssTag );
-        /** Check if we are in development mode */
-        if( CANVAS_DEVELOPMENT_MODE ){
-          /** Append the development css files */
-          $html .= self::buildTags( ['style/development.css'], self::$cssTag );
+        try{
+          $html = self::buildTags( self::$cssFiles, self::$cssTag );
+          /** Check if we are in development mode */
+          if( CANVAS_DEVELOPMENT_MODE ){
+            /** Append the development css files */
+            $html .= self::buildTags( ['style/development.css'], self::$cssTag );
+          }
+          return $html;
+        } catch ( \Exception $exception ){
+          echo '<pre>'.print_r($exception,true).'</pre>';
         }
-        return $html;
       }
 
       /**
@@ -159,16 +189,20 @@
        */
       private static function buildTags( $files, $tag )
       {
-        $html = '';
-        $path = CANVAS_DEVELOPMENT_MODE ? CANVAS_DEVELOPMENT_URL : CANVAS_LIVE_URL;
-        foreach( $files as $file ){
-          $fullpath = $path.$file;
-          if( substr( $file, 0, 2) === '//' ){
-            $fullpath = $file;
+        try {
+          $html = '';
+          $path = CANVAS_DEVELOPMENT_MODE ? CANVAS_DEVELOPMENT_URL : CANVAS_LIVE_URL;
+          foreach ($files as $file) {
+            $fullpath = $path . $file;
+            if (substr ($file, 0, 2) === '//') {
+              $fullpath = $file;
+            }
+            $html .= sprintf ($tag, $fullpath);
           }
-          $html .= sprintf( $tag, $fullpath );
+          return $html;
+        } catch ( \Exception $exception ){
+          echo '<pre>'.print_r($exception,true).'</pre>';
         }
-        return $html;
       }
 
       /** *********************************************************************************************************** */

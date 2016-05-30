@@ -27,12 +27,6 @@
 
       private $inputHTML = '<input type="text" id="%s" name="%s" placeholder="%s" />';
 
-      private $type;
-
-      private $key;
-
-      private $label;
-
       private $placeholder;
 
       private $testValues;
@@ -108,21 +102,6 @@
       /**                            GETTERS                            */
       /** ************************************************************* */
 
-      private function getType()
-      {
-        return $this->type;
-      }
-
-      private function getKey()
-      {
-        return $this->key;
-      }
-
-      private function getLabel()
-      {
-        return $this->label;
-      }
-
       private function getPlaceholder()
       {
         return $this->placeholder;
@@ -141,30 +120,6 @@
       /** ************************************************************* */
       /**                            SETTERS                            */
       /** ************************************************************* */
-
-      private function setType( $type = null )
-      {
-        if( $type === null ){
-          $type = 0;
-        }
-        $this->type = $type;
-      }
-
-      private function setKey( $key = null )
-      {
-        if( $key === null ){
-          $key = 0;
-        }
-        $this->key = $key;
-      }
-
-      private function setLabel( $label = null )
-      {
-        if( $label === null ){
-          $label = 'No Label Provided';
-        }
-        $this->label = $label;
-      }
 
       private function setPlaceholder( $placeholder = null )
       {

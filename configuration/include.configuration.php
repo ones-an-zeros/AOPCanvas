@@ -56,6 +56,10 @@
     /**                                           PALLET EDITOR TYPES                                               */
     /** *********************************************************************************************************** */
 
+    /** Editor Part Interface */
+    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'editor'.DIRECTORY_SEPARATOR.'part.interface.php' );
+    /** Editor Part Abstract */
+    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'editor'.DIRECTORY_SEPARATOR.'part.abstract.php' );
     /** Text Input Editor Part */
     include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'editor'.DIRECTORY_SEPARATOR.'text.part.php' );
   }
