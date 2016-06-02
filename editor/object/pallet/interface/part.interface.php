@@ -14,7 +14,8 @@
 
     interface PartInterface
     {
-      
+
+      public function render();
 
     }
   }

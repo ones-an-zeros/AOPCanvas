@@ -19,6 +19,8 @@
     define( 'CANVAS_LIVE_URL', '//client.ones-n-zeros.com/aop/' );
     /** This is the path to the configuration directory */
     define( 'CANVAS_CONFIGURATION_DIRECTORY', __DIR__.DIRECTORY_SEPARATOR );
+    /** This is the path to the exception handler directory */
+    define( 'CANVAS_EXCEPTION_DIRECTORY', CANVAS_ROOT.'exception'.DIRECTORY_SEPARATOR );
     /** This is the path to the editor directory */
     define( 'CANVAS_EDITOR_DIRECTORY', CANVAS_ROOT.'editor'.DIRECTORY_SEPARATOR );
   }

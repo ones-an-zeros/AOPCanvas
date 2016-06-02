@@ -17,13 +17,11 @@
      *
      * @package Canvas\Editor\Area\Pallet\Editor
      */
-    class Text
+    class Text extends PartAbstract implements PartInterface
     {
       /** ************************************************************* */
       /**                          VARIABLES                            */
       /** ************************************************************* */
-
-      private $labelHTML = '<label for="%s">%s</label>';
 
       private $inputHTML = '<input type="text" id="%s" name="%s" placeholder="%s" />';
 
@@ -67,36 +65,10 @@
         return $this->renderLabel().$this->renderInput();
       }
 
-      private function renderLabel()
-      {
-        return sprintf( $this->labelHTML, $this->getKey(), $this->getLabel() );
-      }
-
       private function renderInput()
       {
         return sprintf( $this->inputHTML, $this->getKey(), $this->getKey(), $this->getPlaceholder() );
       }
-
-
-      /**
-       * public function isValid( $value )
-      {
-        $messages = [];
-
-        if( !is_null( $this->minLength ) && strlen( $value ) >= $this->minLength ){
-          $messages[] = $this->minLengthMessage;
-        }
-
-        if( !is_null( $this->maxLength ) && strlen( $value ) <= $this->maxLength ){
-          $messages[] = $this->maxLengthMessage;
-        }
-
-        return [
-          'outcome' => sizeof( $messages ) === 0 ? false : true,
-          'messages' => $messages
-        ];
-      }
-       */
 
       /** ************************************************************* */
       /**                            GETTERS                            */

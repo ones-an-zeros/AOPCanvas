@@ -36,7 +36,7 @@
       /** @var Editor $editor The html container */
       private $editor;
       /** @var string $cssTag The css tag string we can use sprintf to build a css tag */
-      private static $cssTag = '<link href="%s" rel="stylesheet" />'.PHP_EOL;
+      private static $cssTag = '<link href="%s" rel="stylesheet" />';
       /** @var array $cssFiles An array of the css files */
       private static $cssFiles = [
         'https://fonts.googleapis.com/css?family=Open+Sans',
@@ -46,7 +46,7 @@
         'style/title.css'
       ];
       /** @var string $javascriptTag The javascript tag string we can use sprintf to build a javascript tag */
-      private static $javascriptTag = '<script src="%s" type="text/javascript"></script>'.PHP_EOL;
+      private static $javascriptTag = '<script src="%s" type="text/javascript"></script>';
       /** @var array $javascriptFiles An array of the javascript files */
       private static $javascriptFiles = [
         '//use.fontawesome.com/637b859a5b.js',
@@ -74,7 +74,11 @@
 
       private function constructor()
       {
-
+        try {
+          echo $_GET['stuff'];
+        } catch ( \Exception $exception ){
+          echo '<pre>'.print_r( $exception, true ).'</pre>';
+        }
       }
 
       /** *********************************************************************************************************** */
@@ -95,13 +99,14 @@
       public static function render( $data )
       {
         try{
+          $_GET['NOT HERE'];
           /** @var \Canvas\Canvas $instance The current instance of the Canvas object */
           $instance = self::getInstance();
           /** @var Editor editor The Editor object */
           $instance->editor = new Editor( $data );
           return $instance->editor->render();
         } catch ( \Exception $exception ){
-          echo '<pre>'.print_r($exception,true).'</pre>';
+          echo '<pre>'.print_r( $exception, true ).'</pre>';
         }
       }
 

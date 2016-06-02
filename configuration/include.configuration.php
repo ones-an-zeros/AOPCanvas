@@ -24,6 +24,36 @@
     include_once( CANVAS_CONFIGURATION_DIRECTORY.'layout.configuration.php' );
 
     /** *********************************************************************************************************** */
+    /**                                               ERROR HANDLING                                                */
+    /** *********************************************************************************************************** */
+
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'handler.object.php' );
+
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'canvasException.object.php' );
+
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'arrayToStringConversion.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'compileError.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'compileWarning.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'coreError.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'coreWarning.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'includeOnce.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'missingArgument.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'propertyOfNoneObject.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'recoverable.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'standardDeprecated.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'standardNotice.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'standardParse.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'standardWarning.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'strict.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'unDefinedConstant.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'unDefinedIndex.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'unDefinedVariable.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'userDeprecated.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'userError.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'userNotice.exception.php' );
+    include_once( CANVAS_EXCEPTION_DIRECTORY.'type'.DIRECTORY_SEPARATOR.'userWarning.exception.php' );
+    
+    /** *********************************************************************************************************** */
     /**                                                  EDITOR                                                     */
     /** *********************************************************************************************************** */
 
@@ -57,9 +87,9 @@
     /** *********************************************************************************************************** */
 
     /** Editor Part Interface */
-    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'editor'.DIRECTORY_SEPARATOR.'part.interface.php' );
+    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'interface'.DIRECTORY_SEPARATOR.'part.interface.php' );
     /** Editor Part Abstract */
-    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'editor'.DIRECTORY_SEPARATOR.'part.abstract.php' );
+    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'abstract'.DIRECTORY_SEPARATOR.'part.abstract.php' );
     /** Text Input Editor Part */
     include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'editor'.DIRECTORY_SEPARATOR.'text.part.php' );
   }
