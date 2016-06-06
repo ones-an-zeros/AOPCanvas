@@ -48,6 +48,37 @@
           ]
         }
       ]
+    },
+    {
+      "key" :     1,
+      "label" :   "Images",
+      "editors" : [
+        {
+          "key" :   0,
+          "label" : "Logo",
+          "parts" : [
+            {
+              "type" :        0,
+              "label" :       "Name",
+              "placeholder" : "Your Event Name",
+              "testValues" : {
+                "minLength": 5,
+                "maxLength": 15
+              },
+              "testMessages" : {
+                "minLength": "Your event name must be at least %s characters long!",
+                "maxLength": "Your event name must be no longer than %s characters long!"
+              }
+            }
+          ]
+        }
+      ],
+      "editable": [
+        {
+         "position" : { "x": 0, "y": 0 },
+          "dimensions" : { "height" : 100, "width" : 100 }
+        }
+      ]
     }
   ]
 }

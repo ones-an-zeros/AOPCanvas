@@ -27,13 +27,13 @@
 
       private $label;
 
-      private $containerHTML = '<li id="%s" class="active">%s%s</li>';
+      private $containerHTML = '<li id="%s" class="editor">%s%s</li>';
 
-      private $labelHTML = '<span>%s</span>';
+      private $labelHTML = '<span class="editor-button">%s</span>';
 
-      private $editorHTML = '<span>%s%s</span>';
+      private $editorHTML = '<span class="form">%s%s</span>';
 
-      private $buttonHTML = '<button id="%s" name="%s">%s</button>';
+      private $buttonHTML = '<button id="%s" name="%s" class="submit">%s</button>';
 
       private $containerID;
 

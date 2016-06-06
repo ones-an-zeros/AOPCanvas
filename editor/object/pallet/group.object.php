@@ -25,7 +25,7 @@
 
       private $iconHTML = '<i class="fa fa-plus-square" aria-hidden="true">&nbsp;</i>';
 
-      private $containerHTML = '<li id="%s" class="active">%s %s<ul>%s</ul></li>';
+      private $containerHTML = '<li id="%s" class="group"><span class="group-button">%s %s</span><ul>%s</ul></li>';
 
       private $containerID;
 

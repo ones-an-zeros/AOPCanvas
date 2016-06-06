@@ -6,7 +6,7 @@
   padding:            0px;
 }
 
-/** Not Active Not hover */
+/** BASE STYLES */
 #canvasPalletID ul{
   display:            block;
   width:              244px;
@@ -15,147 +15,108 @@
   padding:            0px;
 }
 
-#canvasPalletID ul li{
-  width:              244px;
-  height:             30px;
+#canvasPalletID ul li.group{
   display:            block;
-  background:         #f3f4f9;
-  margin:             0px 0px 0px 0px;
-  padding:            0px 0px 0px 0px;
-  color:              #4b4b4b;
-  font-size:          16px;
-  line-height:        29px;
-  text-shadow:        1px 1px 1px #5F5F5F, 0px 0px 0px #EFEFEF, 0px 0px 0px #5F5F5F;
-  border-bottom:      2px solid #999999;
-  -webkit-box-shadow: inset 0px -10px 15px -5px rgba(0,0,0,0.40), inset 0px 10px 15px -5px rgba(0,0,0,0.40);
-  -moz-box-shadow:    inset 0px -10px 15px -5px rgba(0,0,0,0.40), inset 0px 10px 15px -5px rgba(0,0,0,0.40);
-  box-shadow:         inset 0px -10px 15px -5px rgba(0,0,0,0.40), inset 0px 10px 15px -5px rgba(0,0,0,0.40);
+  width:              244px;
+  margin:             0px;
+  padding:            0px;
+}
+
+#canvasPalletID ul li.group span.group-button{
+  display:            block;
+  width:              244px;
+  height:             35px;
+  margin:             0px;
+  padding:            0px 0px 0px 10px;
+  font-size:          18px;
+  line-height:        33px;
+  background:         red;
   cursor:             pointer;
 }
 
-#canvasPalletID ul li ul{
-  width:              244px;
+#canvasPalletID ul li.group ul{
   display:            none;
   visibility:         hidden;
-  margin:             0px 0px 0px 0px;
-  padding:            0px 0px 0px 0px;
-}
-
-#canvasPalletID ul li ul li{
   width:              244px;
-  margin:             0px 0px 0px 0px;
-  padding:            0px 0px 0px 0px;
+  list-style:         none;
+  margin:             0px;
+  padding:            0px;
 }
 
-#canvasPalletID ul li ul li span:first-of-type{
-  padding:            0px 0px 0px 10px;
-}
-#canvasPalletID ul li ul li span:last-of-type{
-  display:            block;
-  padding:            0px 0px 0px 10px;
+#canvasPalletID ul li.group ul li.editor{
+  margin:             0px;
+  padding:            0px;
 }
 
-#canvasPalletID ul li ul li span:last-of-type label{
-  padding:            0px 5px 0px 0px;
-}
-
-/** Active */
-#canvasPalletID ul li.active{
+#canvasPalletID ul li.group ul li.editor span.editor-button{
+  display:            inline-block;
   width:              244px;
-  display:            block;
-  height:             auto;
-  background:         #4CAF50;
-  color:              white;
-  cursor:             default;
+  height:             20px;
+  margin:             0px;
+  padding:            0px 0px 0px 10px;
   font-size:          16px;
-  line-height:        30px;
-  text-shadow:        1px 1px 1px #505256, 0 0 0 #000, 1px 1px 2px #505256;
+  line-height:        20px;
+  background:         red;
+  cursor:             pointer;
+}
+
+#canvasPalletID ul li.group ul li span.form{
+  display:            none;
+  visibility:         hidden;
+  margin:             0px;
+  padding:            0px;
+}
+
+#canvasPalletID ul li.group ul li span.form button.submit{
+  margin:             0px;
+  padding:            0px;
+  width:              100%;
+  height:             20px;
+  font-size:          12px;
+  line-height:        15px;
+  border-right:       0px solid white;
+  border-bottom:      0px solid white;
+  border-left:        0px solid white;
+}
+#canvasPalletID ul li.group ul li span.form{
+  margin:             0px;
+  padding:            0px;
+}
+
+#canvasPalletID ul li.group ul li span.form label{
+
+}
+
+#canvasPalletID ul li.group ul li span.form input{
+
+}
+
+#canvasPalletID ul li.group ul li span.form select{
+
+}
+
+#canvasPalletID ul li.group ul li span.form button{
+
+}
+
+/** ACTIVE CLASSES */
+#canvasPalletID ul li.active{
+
+}
+
+#canvasPalletID ul li.active span.group-button{
+  background:         green;
 }
 
 #canvasPalletID ul li.active ul{
-  width:              244px;
   display:            block;
   visibility:         visible;
-  background:         #f3f4f9;
-  padding:            0px 0px 0px 0px;
-  margin:             0px 0px 0px 0px;
 }
 
-#canvasPalletID ul li.active ul li{
-  width:              244px;
+#canvasPalletID ul li.active ul li.active span.editor-button{
+  background:         green;
+}
+#canvasPalletID ul li.active ul li.active span.form{
   display:            block;
-  border-bottom:      0px;
-  font-size:          14px;
-  line-height:        24px;
-  color:              #4b4b4b;
-  text-shadow:        0px 0px 0px #5F5F5F, 0 0 0 #000, 1px 0px 1px #5F5F5F;
-  -webkit-box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,0.55);
-  -moz-box-shadow:    inset 0px 0px 0px 0px rgba(0,0,0,0.55);
-  box-shadow:         inset 0px 0px 0px 0px rgba(0,0,0,0.55);
+  visibility:         visible;
 }
-
-#canvasPalletID ul li.active ul li.active{
-  width:              244px;
-  display:            block;
-  height:             auto;
-  background:         #f3f4f9;
-  border-bottom:      1px dotted #565555;
-}
-
-/** Hover */
-#canvasPalletID ul li:hover{
-  background:         #5F5F5F;
-  color:              white;
-  text-shadow:        0px 0px 0px #000, 0 0 0 #5F5F5F, 1px 0px 1px #000;
-  border-bottom:      2px solid #565555;
-}
-
-#canvasPalletID ul li.active ul li:hover{
-  color:              white;
-  text-shadow:        0px 0px 0px #000, 0 0 0 #5F5F5F, 1px 0px 1px #000;
-}
-
-
-/** Extra */
-#canvasPalletID ul li i{
-  margin:             0px 5px 0px 0px;
-}
-
-
-
-/** Editor Controls */
-#canvasControlID{
-  width:              244px;
-  height:             35px;
-  background:         blue;
-  position:           absolute;
-  bottom:             0px;
-  right:              0px;
-  border-top:         1px solid black;
-}
-
-#canvasControlID button{
-  width:              122px;
-  height:             35px;
-  margin:             0px;
-  padding:            0px;
-  border:             0px solid white;
-  background:         none;
-  -webkit-box-shadow: inset 0px -10px 15px -5px rgba(0,0,0,0.40);
-  -moz-box-shadow:    inset 0px -10px 15px -5px rgba(0,0,0,0.40);
-  box-shadow:         inset 0px -10px 15px -5px rgba(0,0,0,0.40);
-  cursor:             pointer;
-  font-size:          16px;
-  color:              white;
-  text-shadow:        0px 0px 0px #000, 0 0 0 #5F5F5F, 1px 0px 1px #000;
-}
-
-#canvasControlID button:first-of-type{
-  border-right:       1px solid black;
-}
-
-#canvasControlID button:hover{
-  background:         #4CAF50;
-  text-shadow:        1px 1px 1px #505256, 0 0 0 #000, 1px 1px 2px #505256;
-}
-

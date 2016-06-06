@@ -11,9 +11,14 @@
 
   namespace Canvas\Exception
   {
+    /** *********************************************************************************************************** */
+    /**                                                 PHP INI                                                     */
+    /** *********************************************************************************************************** */
     ini_set('display_errors', 0);
-    
-    
+
+    /** *********************************************************************************************************** */
+    /**                                         IMPORT EXCEPTION CLASSES                                            */
+    /** *********************************************************************************************************** */
     use Canvas\Exception\Type\ArrayToStringConversion;
     use Canvas\Exception\Type\CompileError;
     use Canvas\Exception\Type\CompileWarning;
@@ -36,21 +41,35 @@
     use Canvas\Exception\Type\UserNotice;
     use Canvas\Exception\Type\UserWarning;
 
+    /**
+     * Class Handle
+     *
+     * @package Canvas\Exception
+     */
     class Handle
     {
+      /** *********************************************************************************************************** */
+      /**                                                 CONSTANTS                                                   */
+      /** *********************************************************************************************************** */
+
+      /** @const int name Index for the name value in match */
       const name        = 0;
-
+      /** @const int matches Index for the matches value in match */
       const matches     = 1;
-
+      /** @const int matchString Index for the match string in the sub matches array */
       const matchString = 0;
-
+      /** @const int matchStart Index for the match start int in the sub matches array */
       const matchStart  = 1;
-
+      /** @const int matchEnd Index for the match end int in the sub matches array */
       const matchEnd    = 2;
-
+      /** @const int matchName Index for the match class n ame in the sub matches array */
       const matchName   = 3;
 
+      /** *********************************************************************************************************** */
+      /**                                                 VARIABLES                                                   */
+      /** *********************************************************************************************************** */
 
+      /** @var array $match This array contains all the data to qualify exceptions and turn them into more specific exceptions */
       private static $match = [
         E_WARNING => [
           self::name => 'Canvas\Exception\Type\StandardWarning',
@@ -84,8 +103,23 @@
         E_USER_DEPRECATED   => [ self::name => 'Canvas\Exception\Type\UserDeprecated',            self::matches => null ]
       ];
 
-
-
+      /**
+       * Handle Exception
+       *
+       * This method is called to handle an exception it will first check if an exception has matching sub types. These
+       * sub typs are sub exceptions of the parent exception that may or may not give the handler the option to throw
+       * a more type specific exception.
+       *
+       * @method  exception
+       *
+       * @param   int               $severity
+       * @param   string            $message
+       * @param   string            $file
+       * @param   int               $line
+       * @param   null|\Exception   $prev
+       * @access  public
+       * @static
+       */
       public static function exception( $severity, $message, $file = __FILE__, $line = __LINE__, $prev = null )
       {
         /** @var string $exceptionName Default the name to the standard exception */
@@ -105,24 +139,52 @@
         throw new $exceptionName( $message, 0, $severity, $file, $line );
       }
 
+      /**
+       * Fatal Exceptions
+       *
+       * Handle all fatal exceptions
+       *
+       * @method  fatal
+       * @access  public
+       * @static
+       */
       public static function fatal()
       {
 
       }
 
+      /**
+       * Exception Name
+       *
+       * Get the matches exception name
+       *
+       * @method  exceptionName
+       * @param   int             $type
+       * @return  bool
+       * @access  private
+       * @static
+       */
       private static function exceptionName( $type )
       {
         return self::$match[$type][self::name];
       }
 
+      /**
+       * Has Matches
+       *
+       * Test to see if a type has sub type matches
+       *
+       * @method  hasMatches
+       * @param   int         $type
+       * @return  bool
+       * @access  private
+       * @static
+       */
       private static function hashMatches( $type )
       {
         return self::$match[$type][self::matches] !== null;
       }
-
-
-
-
+      
       /** *********************************************************************************************************** */
       /**                                               SINGLETON                                                     */
       /** *********************************************************************************************************** */

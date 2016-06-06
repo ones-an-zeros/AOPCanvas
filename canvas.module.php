@@ -39,7 +39,7 @@
       private static $cssTag = '<link href="%s" rel="stylesheet" />';
       /** @var array $cssFiles An array of the css files */
       private static $cssFiles = [
-        'https://fonts.googleapis.com/css?family=Open+Sans',
+        '//fonts.googleapis.com/css?family=Open+Sans',
         'style/container.css',
         'style/canvas.css',
         'style/pallet.css',
@@ -49,10 +49,9 @@
       private static $javascriptTag = '<script src="%s" type="text/javascript"></script>';
       /** @var array $javascriptFiles An array of the javascript files */
       private static $javascriptFiles = [
-        '//use.fontawesome.com/637b859a5b.js',
-        '//code.jquery.com/jquery-1.12.4.min.js',
         'javascript/pallet.object.js',
-        'javascript/canvas.js'
+        '//use.fontawesome.com/637b859a5b.js',
+        '//code.jquery.com/jquery-1.12.4.min.js'
       ];
       /** @var string $onReady The javascript tag string we can use for the onload */
       private static $onReady = '<script type="text/javascript">$(document).ready(function(){ %s });</script>';
@@ -75,9 +74,9 @@
       private function constructor()
       {
         try {
-          echo $_GET['stuff'];
+
         } catch ( \Exception $exception ){
-          echo '<pre>'.print_r( $exception, true ).'</pre>';
+          self::exception( $exception );
         }
       }
 
@@ -99,14 +98,13 @@
       public static function render( $data )
       {
         try{
-          $_GET['NOT HERE'];
           /** @var \Canvas\Canvas $instance The current instance of the Canvas object */
           $instance = self::getInstance();
           /** @var Editor editor The Editor object */
           $instance->editor = new Editor( $data );
           return $instance->editor->render();
         } catch ( \Exception $exception ){
-          echo '<pre>'.print_r( $exception, true ).'</pre>';
+          self::exception( $exception );
         }
       }
 
@@ -126,7 +124,7 @@
         try {
           return sprintf (self::$onReady, 'CanvasPallet.initialize();');
         } catch ( \Exception $exception ){
-          echo '<pre>'.print_r($exception,true).'</pre>';
+          self::exception( $exception );
         }
       }
 
@@ -151,7 +149,7 @@
           }
           return $html;
         } catch ( \Exception $exception ){
-          echo '<pre>'.print_r($exception,true).'</pre>';
+          self::exception( $exception );
         }
       }
 
@@ -176,7 +174,7 @@
           }
           return $html;
         } catch ( \Exception $exception ){
-          echo '<pre>'.print_r($exception,true).'</pre>';
+          self::exception( $exception );
         }
       }
 
@@ -198,27 +196,25 @@
           $html = '';
           $path = CANVAS_DEVELOPMENT_MODE ? CANVAS_DEVELOPMENT_URL : CANVAS_LIVE_URL;
           foreach ($files as $file) {
-            $fullpath = $path . $file;
-            if (substr ($file, 0, 2) === '//') {
-              $fullpath = $file;
+            $fullpath = $path.$file;
+            if( substr($file, 0, 2) === '//' ){
+              $fullpath = $_SERVER['REQUEST_SCHEME'].':'.$file;
             }
-            $html .= sprintf ($tag, $fullpath);
+            $html .= sprintf ($tag, $fullpath).PHP_EOL;
           }
           return $html;
         } catch ( \Exception $exception ){
-          echo '<pre>'.print_r($exception,true).'</pre>';
+          self::exception( $exception );
         }
       }
 
       /** *********************************************************************************************************** */
-      /**                                             CONFIGURATION                                                   */
+      /**                                               EXCEPTION                                                     */
       /** *********************************************************************************************************** */
 
-
-      private static function parseData( $data )
+      private static function exception( $exception )
       {
-
-
+        echo $exception->prettyPrint();
       }
 
       /** *********************************************************************************************************** */
