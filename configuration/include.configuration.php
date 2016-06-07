@@ -92,4 +92,15 @@
     include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'abstract'.DIRECTORY_SEPARATOR.'part.abstract.php' );
     /** Text Input Editor Part */
     include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'pallet'.DIRECTORY_SEPARATOR.'editor'.DIRECTORY_SEPARATOR.'text.part.php' );
+
+    /** *********************************************************************************************************** */
+    /**                                             CANVAS OBJECTS                                                  */
+    /** *********************************************************************************************************** */
+
+    /** CANVAS EDITABLE OBJECT */
+    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'canvas'.DIRECTORY_SEPARATOR.'object'.DIRECTORY_SEPARATOR.'editable.object.php' );
+    /** CANVAS COORDINATE OBJECT */
+    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'canvas'.DIRECTORY_SEPARATOR.'object'.DIRECTORY_SEPARATOR.'object'.DIRECTORY_SEPARATOR.'coordinate.object.php' );
+    /** CANVAS DIMENSION OBJECT */
+    include_once( CANVAS_EDITOR_DIRECTORY.'object'.DIRECTORY_SEPARATOR.'canvas'.DIRECTORY_SEPARATOR.'object'.DIRECTORY_SEPARATOR.'object'.DIRECTORY_SEPARATOR.'dimension.object.php' );
   }
