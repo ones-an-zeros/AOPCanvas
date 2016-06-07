@@ -29,7 +29,9 @@
 
       private $containerHTML = '<li id="%s" class="editor">%s%s</li>';
 
-      private $labelHTML = '<span class="editor-button">%s</span>';
+      private $iconHTML = '<i class="fa fa-plus-square" aria-hidden="true">&nbsp;</i>';
+
+      private $labelHTML = '<span class="editor-button">%s %s</span>';
 
       private $editorHTML = '<span class="form">%s%s</span>';
 
@@ -126,7 +128,7 @@
        */
       private function renderLabel()
       {
-        return sprintf( $this->labelHTML, $this->getLabel() );
+        return sprintf( $this->labelHTML,$this->iconHTML, $this->getLabel() );
       }
 
       /**

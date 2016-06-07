@@ -1,21 +1,21 @@
 {
-  "key" :     1,
-  "name" :    "Event Ticket",
-  "price" :   10.99,
-  "width" :   200,
-  "height" :  400,
+  "key" : 1,
+  "name" : "Event Ticket",
+  "price" : 10.99,
+  "width" : 200,
+  "height" : 400,
   "groups" : [
     {
-      "key" :     0,
-      "label" :   "Text Areas",
+      "key" : 0,
+      "label" : "Text Areas",
       "editors" : [
         {
-          "key" :   0,
+          "key" : 0,
           "label" : "Event Name",
           "parts" : [
             {
-              "type" :        0,
-              "label" :       "Name",
+              "type" : 0,
+              "label" : "Name",
               "placeholder" : "Your Event Name",
               "testValues" : {
                 "minLength": 5,
