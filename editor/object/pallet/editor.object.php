@@ -11,6 +11,12 @@
 
   namespace Canvas\Editor\Area\Pallet
   {
+    /** ************************************************************* */
+    /**                      NAMESPACE IMPORT                         */
+    /** ************************************************************* */
+
+    /** Bring the text part object into this namespace */
+    use \Canvas\Editor\Area\Pallet\Editor\Text;
 
     /**
      * Class Editor
@@ -20,31 +26,55 @@
     class Editor
     {
       /** ************************************************************* */
+      /**                          CONSTANTS                            */
+      /** ************************************************************* */
+
+      /** @const int containerHTML The key for the container html in the collection */
+      const containerHTML   = 0;
+      /** @const int iconHTML The key for the icon html in the collection */
+      const iconHTML        = 1;
+      /** @const int labelHTML The key for the label html in the collection */
+      const labelHTML       = 2;
+      /** @const int editorHTML The key for the editor html in the collection */
+      const editorHTML      = 3;
+      /** @const int buttonHTML The key for the button html in the collection */
+      const buttonHTML      = 4;
+      /** @const int containerID The key for the button html in the collection */
+      const containerID     = 5;
+      /** @const int editorID The key for the editor ID in the collection */
+      const editorID        = 6;
+      /** @const int buttonID The key for the button ID in the collection */
+      const buttonID        = 7;
+      /** @const int buttonText The key for the button text in the html */
+      const buttonText      = 8;
+      /** @const int key The key for the key in the collection */
+      const key             = 9;
+      /** @const int label The key for the label in the collection */
+      const label           = 10;
+      /** @const int parts The key for the parts in the collection */
+      const parts           = 11;
+
+      /** ************************************************************* */
       /**                          VARIABLES                            */
       /** ************************************************************* */
-      
-      private $key;
 
-      private $label;
+      /** @var array $collection This is the main collection all data is stored here */
+      private $collection = [
+        self::containerHTML   => '<li id="%s" class="editor">%s%s</li>',
+        self::iconHTML        => '<i class="fa fa-plus-square" aria-hidden="true">&nbsp;</i>',
+        self::labelHTML       => '<span class="editor-button">%s %s</span>',
+        self::editorHTML      => '<span class="form">%s%s</span>',
+        self::buttonHTML      => '<button id="%s" name="%s" class="submit">%s</button>',
+        self::containerID     => null,
+        self::editorID        => null,
+        self::buttonID        => null,
+        self::buttonText      => null,
+        self::key             => null,
+        self::label           => null,
+        self::parts           => null,
+      ];
 
-      private $containerHTML = '<li id="%s" class="editor">%s%s</li>';
-
-      private $iconHTML = '<i class="fa fa-plus-square" aria-hidden="true">&nbsp;</i>';
-
-      private $labelHTML = '<span class="editor-button">%s %s</span>';
-
-      private $editorHTML = '<span class="form">%s%s</span>';
-
-      private $buttonHTML = '<button id="%s" name="%s" class="submit">%s</button>';
-
-      private $containerID;
-
-      private $buttonID;
-
-      private $buttonText;
-
-      private $parts = [];
-
+      /** @var array $partClasses This is a collection of part classes */
       protected $partClasses = [
         0 => 'text'
       ];
@@ -53,19 +83,10 @@
       /**                        BASE METHODS                           */
       /** ************************************************************* */
 
-      /**
-       * Editor constructor.
-       *
-       * This is the constructor for the editor object
-       *
-       * @method  __construct
-       * @param   resource      $editor
-       * @access  public
-       */
-      public function __construct( $editor )
+      public function __construct( $key, $editor )
       {
         /** Set the key value */
-        $this->setKey( $editor->key );
+        $this->setKey( $key );
         /** Set the label value */
         $this->setLabel( $editor->label );
         /** Set the container value */
@@ -88,15 +109,7 @@
        */
       public function __destruct()
       {
-        unset(
-          $this->key,
-          $this->label,
-          $this->buttonText,
-          $this->container,
-          $this->button,
-          $this->parts,
-          $this->partClasses
-        );
+
       }
 
       /** ************************************************************* */
@@ -114,7 +127,12 @@
        */
       public function render()
       {
-        return sprintf( $this->containerHTML, $this->getKey(), $this->renderLabel(), $this->renderEditor() );
+        return sprintf(
+          $this->collection[self::containerHTML],
+          $this->key(),
+          $this->renderLabel(),
+          $this->renderEditor()
+        );
       }
 
       /**
@@ -128,7 +146,11 @@
        */
       private function renderLabel()
       {
-        return sprintf( $this->labelHTML,$this->iconHTML, $this->getLabel() );
+        return sprintf(
+          $this->collection[self::labelHTML],
+          $this->collection[self::iconHTML],
+          $this->label()
+        );
       }
 
       /**
@@ -143,10 +165,14 @@
       private function renderEditor()
       {
         $editor = '';
-        foreach( $this->parts as $part ){
+        foreach( $this->collection[self::parts] as $part ){
           $editor .= $part->render();
         }
-        return sprintf( $this->editorHTML, $editor, $this->renderButton() );
+        return sprintf(
+          $this->collection[self::editorHTML],
+          $editor,
+          $this->renderButton()
+        );
       }
 
       /**
@@ -160,7 +186,12 @@
        */
       private function renderButton()
       {
-        return sprintf( $this->buttonHTML, $this->getKey(), $this->getKey(), $this->getButtonText() );
+        return sprintf(
+          $this->collection[self::buttonHTML],
+          $this->key(),
+          $this->key(),
+          $this->buttonText()
+        );
       }
 
       /** ************************************************************* */
@@ -172,70 +203,60 @@
        *
        * Get the value of the key member
        *
-       * @method  getKey
-       * @return  int
+       * @method  key
+       * @return  string
        * @access  private
        */
-      private function getKey()
-      {
-        return $this->key;
-      }
+      private function key()
+      { return $this->collection[self::key]; }
 
       /**
        * Get Label
        *
        * Get the value of the Label member
        *
-       * @method  getLabel
-       * @return  int
+       * @method  label
+       * @return  string
        * @access  private
        */
-      private function getLabel()
-      {
-        return $this->label;
-      }
+      private function label()
+      { return $this->collection[self::label]; }
 
       /**
        * Get ContainerID
        *
        * Get the value of the ContainerID member
        *
-       * @method  getContainerID
-       * @return  int
+       * @method  containerID
+       * @return  string
        * @access  private
        */
-      private function getContainerID()
-      {
-        return $this->containerID;
-      }
+      private function containerID()
+      { return $this->collection[self::containerID]; }
 
       /**
        * Get ButtonID
        *
        * Get the value of the ButtonID member
        *
-       * @method  getButtonID
-       * @return  int
+       * @method  buttonID
+       * @return  string
        * @access  private
        */
-      private function getButtonID()
-      {
-        return $this->buttonID;
-      }
+      private function buttonID()
+      { return $this->collection[self::buttonID]; }
 
       /**
-       * Get ButtonText
+       * Get Button Text
        *
        * Get the value of the ButtonText member
        *
-       * @method  getButtonText
-       * @return  int
+       * @method  buttonText
+       * @return  string
        * @access  private
        */
-      private function getButtonText()
-      {
-        return $this->buttonText;
-      }
+      private function buttonText()
+      { return $this->collection[self::buttonText]; }
 
       /** ************************************************************* */
       /**                            SETTERS                            */
@@ -254,7 +275,7 @@
         if( $key === null ){
           $key = 01;
         }
-        $this->key = $key;
+        $this->collection[self::key] = $key;
       }
 
       /**
@@ -270,7 +291,7 @@
         if( $label === null ){
           $label = 'No Label Provided';
         }
-        $this->label = $label;
+        $this->collection[self::label] = $label;
       }
 
       /**
@@ -286,7 +307,7 @@
         if( $ID === null ){
           $ID = 02;
         }
-        $this->containerID = $ID;
+        $this->collection[self::containerID] = $ID;
       }
 
       /**
@@ -302,7 +323,7 @@
         if( $ID === null ){
           $ID = 03;
         }
-        $this->buttonID = $ID;
+        $this->collection[self::buttonID] = $ID;
       }
 
       /**
@@ -318,33 +339,27 @@
         if( $text === null ){
           $text = 'Button Text Not Provided';
         }
-        $this->buttonText = $text;
+        $this->collection[self::buttonText] = $text;
       }
 
       /** ************************************************************* */
       /**                         CONSTRUCTORS                          */
       /** ************************************************************* */
 
+      /**
+       * Construct Parts
+       *
+       * Construct all of the part objects
+       *
+       * @method  constructParts
+       * @param   array           $parts
+       * @access  private
+       */
       private function constructParts( $parts )
       {
         foreach( $parts as $part ){
-          $this->parts[] = new \Canvas\Editor\Area\Pallet\Editor\Text( $part );
+          $this->collection[self::parts][] = new Text( $part );
         }
-      }
-
-      private function editorIDString()
-      {
-        return "Editor:{$this->key}";
-      }
-
-      private function buttonIDString()
-      {
-        return "EditorButton:{$this->key}";
-      }
-
-      private function buttonNameString()
-      {
-        return "EditorButton:{$this->key}";
       }
     }
   }
