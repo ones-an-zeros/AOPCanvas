@@ -8,20 +8,20 @@
     "height" :    400,
     "editables":  [
       {
+        "key" :         { "group": 0, "editor": 0 },
         "dimension" :   { "width": 180, "height" : 25 },
         "coordinate" :  { "x" : 10, "y" : 10 },
         "content" :     "Event Name",
-        "style" :       {
-          "text-align" :  "center"
-        }
+        "style" :       { "text-align" :  "center" },
+        "parts" :       [ { "editor-part": 0, "type": "content" } ]
       },
       {
+        "key" :         { "group": 0, "editor": 1 },
         "dimension" :   { "width": 180, "height" : 25 },
         "coordinate" :  { "x" : 365, "y" : 10 },
         "content" :     "Footer",
-        "style" :       {
-          "text-align" :  "center"
-        }
+        "style" :       { "text-align" :  "center" },
+        "parts" :       [ { "editor-part": 0, "type": "content" } ]
       }
     ]
   },

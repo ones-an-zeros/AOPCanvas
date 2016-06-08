@@ -19,7 +19,7 @@
       const style           = 5;
 
       private $collection = [
-        self::containerHTML   => '<div style="position:absolute;top:%spx;left:%spx;width:%spx;height:%spx;%s">%s</div>',
+        self::containerHTML   => '<div id="%s" style="position:absolute;top:%spx;left:%spx;width:%spx;height:%spx;%s">%s</div>',
         self::coordinate      => null,
         self::dimension       => null,
         self::key             => null,
@@ -31,11 +31,11 @@
 
       public function __construct( $key, $data )
       {
-        $this->setKey( $key );
-
         $this->setContent( $data->content );
 
-        $this->setStyle( $data->style );
+        $this->constructStyle( $data->style );
+
+        $this->constructKey( $data->key->group, $data->key->editor );
 
         $this->constructCoordinate( $data->coordinate->x, $data->coordinate->y );
 
@@ -52,6 +52,7 @@
       {
         return sprintf(
           $this->collection[self::containerHTML],
+          $this->collection[self::key]->editableID(),
           $this->collection[self::coordinate]->x(),
           $this->collection[self::coordinate]->y(),
           $this->collection[self::dimension]->width(),
@@ -72,13 +73,10 @@
         return $html;
       }
 
-      private function setKey( $key )
-      { $this->collection[self::key] = $key; }
-
       private function setContent( $content )
       { $this->collection[self::content] = $content; }
 
-      private function setStyle( $style )
+      private function constructStyle( $style )
       {
         if( count( $style ) ) {
           foreach ($style as $key => $value) {
@@ -87,8 +85,11 @@
         }
       }
 
+      private function constructKey( $group, $editor )
+      { $this->collection[self::key] = new Key( $group, $editor ); }
+
       private function constructCoordinate( $x, $y )
-      {$this->collection[self::coordinate] = new Coordinate( $x, $y ); }
+      { $this->collection[self::coordinate] = new Coordinate( $x, $y ); }
 
       private function constructDimension( $width, $height )
       { $this->collection[self::dimension] = new Dimension( $width, $height ); }
