@@ -77,6 +77,9 @@
         $this->constructPalletArea( $data->groups );
         /** Construct the Control Area */
         $this->constructControlArea();
+
+
+        echo '<pre>'.print_r( $data, true ).'</pre>';
       }
 
       /**
