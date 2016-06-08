@@ -1,84 +1,67 @@
 {
-  "key" : 1,
-  "name" : "Event Ticket",
-  "price" : 10.99,
-  "width" : 200,
-  "height" : 400,
-  "groups" : [
-    {
-      "key" : 0,
-      "label" : "Text Areas",
-      "editors" : [
-        {
-          "key" : 0,
-          "label" : "Event Name",
-          "parts" : [
-            {
-              "type" : 0,
-              "label" : "Name",
-              "placeholder" : "Your Event Name",
-              "testValues" : {
-                "minLength": 5,
-                "maxLength": 15
-              },
-              "testMessages" : {
-                "minLength": "Your event name must be at least %s characters long!",
-                "maxLength": "Your event name must be no longer than %s characters long!"
-              }
+  "title" : {
+    "product" :   "Event Ticket",
+    "pallet" :    "Customizations"
+  },
+  "canvas" : {
+    "width" :     200,
+    "height" :    400,
+    "editables":  [
+      {
+        "dimension"   : { "width": 100, "height" : 25 },
+        "coordinate"  : { "x" : 0, "y" : 0 }
+      }
+    ]
+  },
+  "pallet" : {
+    "groups" : [
+      {
+        "label" :   "Text Areas",
+        "editors": [
+          {
+            "label" :       "Title",
+            "placeholder" : "Event Name",
+            "testValues" : {
+              "minLength": 5,
+              "maxLength": 15
+            },
+            "testMessages" : {
+              "minLength": "Your event name must be at least %s characters long!",
+              "maxLength": "Your event name must be no longer than %s characters long!"
             }
-          ]
-        },
-        {
-          "key" :   1,
-          "label" : "Event Name",
-          "parts" : [
-            {
-              "type" :        0,
-              "label" :       "Name",
-              "placeholder" : "Your Event Name",
-              "testValues" : {
-                "minLength": 5,
-                "maxLength": 15
-              },
-              "testMessages" : {
-                "minLength": "Your event name must be at least %s characters long!",
-                "maxLength": "Your event name must be no longer than %s characters long!"
-              }
+          },
+          {
+            "label" :       "Footer",
+            "placeholder" : "Event Name",
+            "testValues" : {
+              "minLength": 5,
+              "maxLength": 15
+            },
+            "testMessages" : {
+              "minLength": "Your event name must be at least %s characters long!",
+              "maxLength": "Your event name must be no longer than %s characters long!"
             }
-          ]
-        }
-      ]
-    },
-    {
-      "key" :     1,
-      "label" :   "Images",
-      "editors" : [
-        {
-          "key" :   0,
-          "label" : "Logo",
-          "parts" : [
-            {
-              "type" :        0,
-              "label" :       "Name",
-              "placeholder" : "Your Event Name",
-              "testValues" : {
-                "minLength": 5,
-                "maxLength": 15
-              },
-              "testMessages" : {
-                "minLength": "Your event name must be at least %s characters long!",
-                "maxLength": "Your event name must be no longer than %s characters long!"
-              }
-            }
-          ]
-        }
-      ],
-      "editable": [
-        {
-         "position" : { "x": 0, "y": 0 },
-          "dimensions" : { "height" : 100, "width" : 100 }
-        }
-      ]
-    }
-  ]
+          }
+        ]
+      },
+      {
+        "label"   : "Images",
+        "editors" : [
+
+        ]
+      },
+      {
+        "label"   : "Colors",
+        "editors" : [
+
+        ]
+      }
+    ],
+    "editors": [
+      {
+        "label" : "Header",
+        "parts" : []
+      }
+    ]
+  }
 }

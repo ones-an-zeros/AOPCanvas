@@ -29,28 +29,67 @@
     class Editor
     {
       /** ************************************************************* */
-      /**                          VARIABLES                            */
+      /**                    COLLECTION CONSTANTS                       */
       /** ************************************************************* */
 
-      /** @var \Canvas\Canvas $canvasModule */
-      private $canvasModule;
-      /** @var string $id The id of the canvas container element */
-      private $id = CANVAS_CONTAINER_ID;
-      /** @var string $html The html string to populate when making the html */
-      private $html = '<div id="%s">%s<div style="clear:left;"></div></div>';
+      const canvasModule  = 0;
+
+      const containerID   = 1;
+
+      const containerHTML = 2;
 
       /** ************************************************************* */
-      /**                          AREA OBJECTS                         */
+      /**                       AREA CONSTANTS                          */
       /** ************************************************************* */
 
-      /** @var \Canvas\Editor\Area\TitleArea $titleArea */
-      private $titleArea;
-      /** @var \Canvas\Editor\Area\CanvasArea $canvasArea */
-      private $canvasArea;
-      /** @var \Canvas\Editor\Area\PalletArea $palletArea */
-      private $palletArea;
-      /** @var \Canvas\Editor\Area\ControlArea $controlArea */
-      private $controlArea;
+      const title     = 0;
+
+      const canvas    = 1;
+
+      const pallet    = 2;
+
+      const control   = 3;
+
+      /** ************************************************************* */
+      /**                        DATA CONSTANTS                         */
+      /** ************************************************************* */
+
+
+      const productTitle    = 0;
+
+      const palletTitle     = 1;
+
+      const canvasWidth     = 0;
+
+      const canvasHeight    = 1;
+
+      const canvasEditables = 2;
+
+      const palletGroups    = 0;
+
+      /** ************************************************************* */
+      /**                         COLLECTIONS                           */
+      /** ************************************************************* */
+
+      private $collection = [
+        self::canvasModule  => null,
+        self::containerID   => CANVAS_CONTAINER_ID,
+        self::containerHTML => '<div id="%s">%s<div style="clear:left;"></div></div>'
+      ];
+
+      private $area = [
+        self::title   => null,
+        self::canvas  => null,
+        self::pallet  => null,
+        self::control => null,
+      ];
+
+      private $data = [
+        self::title   => [ self::productTitle => null, self::palletTitle  => null, ],
+        self::canvas  => [ self::canvasWidth => null, self::canvasHeight => null, self::canvasEditables => [] ],
+        self::pallet  => [ self::palletGroups => [] ],
+        self::control => [],
+      ];
 
       /** ************************************************************* */
       /**                        BASE METHODS                           */
@@ -67,19 +106,18 @@
        */
       public function __construct( $data )
       {
+        /** Parse all of the data into the collectios */
+        $this->parseData( $data );
         /** Set the Canvas Module so we have access to our parent */
         $this->setCanvasModule();
         /** Construct the Title Area */
-        $this->constructTitleArea( $data->name, 'Customizations' );
+        $this->constructTitleArea();
         /** Construct the Canvas Area */
-        $this->constructCanvasArea( $data->width, $data->height );
+        $this->constructCanvasArea();
         /** Construct the Pallet Area */
-        $this->constructPalletArea( $data->groups );
+        $this->constructPalletArea();
         /** Construct the Control Area */
         $this->constructControlArea();
-
-
-        echo '<pre>'.print_r( $data, true ).'</pre>';
       }
 
       /**
@@ -115,50 +153,112 @@
       public function render()
       {
         return sprintf(
-          $this->html,
-          $this->id,
-          $this->titleArea->render().
-          $this->canvasArea->render().
-          $this->palletArea->render().
-          $this->controlArea->render()
+          $this->collection[self::containerHTML],
+          $this->collection[self::containerID],
+          $this->area[self::title]->render().
+          $this->area[self::canvas]->render().
+          $this->area[self::pallet]->render().
+          $this->area[self::control]->render()
         );
       }
-
-      /** ************************************************************* */
-      /**                            GETTERS                            */
-      /** ************************************************************* */
 
       /** ************************************************************* */
       /**                            SETTERS                            */
       /** ************************************************************* */
 
       private function setCanvasModule()
+      { $this->collection[self::canvasModule] = \Canvas\Canvas::getInstance(); }
+
+      /** ************************************************************* */
+      /**                            PARSERS                            */
+      /** ************************************************************* */
+
+      private function parseData( $data )
       {
-        $this->canvasModule = \Canvas\Canvas::getInstance();
+        /** TITLE DATA */
+        $this->data[self::title][self::productTitle]      = $data->title->product;
+        $this->data[self::title][self::palletTitle]       = $data->title->pallet;
+        /** CANVAS DATA */
+        $this->data[self::canvas][self::canvasWidth]      = $data->canvas->width;
+        $this->data[self::canvas][self::canvasHeight]     = $data->canvas->height;
+        $this->data[self::canvas][self::canvasEditables]  = $data->canvas->editables;
+        /** PALLET DATA */
+        $this->data[self::pallet][self::palletGroups]     = $data->pallet->groups;
+        /** CONTROL DATA */
+
       }
 
       /** ************************************************************* */
       /**                         CONSTRUCTORS                          */
       /** ************************************************************* */
 
-      private function constructTitleArea( $productTitle, $palletTitle )
+      /**
+       * Construct Title Area
+       *
+       * Construct the title area object
+       *
+       * @method  constructTitleArea
+       * @access  private
+       */
+      private function constructTitleArea()
       {
-        $this->titleArea = new TitleArea( $productTitle, $palletTitle );
+        $data = $this->data[self::title];
+        $this->area[self::title] = new TitleArea(
+          $data[self::productTitle],
+          $data[self::palletTitle]
+        );
       }
 
-      private function constructCanvasArea( $width, $height )
+      /**
+       * Construct Canvas Area
+       *
+       * Construct the canvas area object
+       *
+       * @method  constructCanvasArea
+       * @access  private
+       */
+      private function constructCanvasArea()
       {
-        $this->canvasArea = new CanvasArea( $width, $height );
+        $data = $this->data[self::canvas];
+        $this->data[self::canvas] = new CanvasArea(
+          $data[self::canvasWidth],
+          $data[self::canvasHeight],
+          $data[self::canvasEditables]
+        );
       }
 
-      private function constructPalletArea( $groups )
+      /**
+       * Construct Pallet Area
+       *
+       * Construct the Pallet Area Object
+       *
+       * @method  constructPalletArea
+       * @access  private
+       */
+      private function constructPalletArea()
       {
-        $this->palletArea = new PalletArea( $groups );
+        $data = $this->data[self::pallet];
+        $this->data[self::pallet] = new PalletArea( $data[self::palletGroups] );
       }
 
+      /**
+       * Construct Controller Area
+       *
+       * Construct the Controller Area object
+       *
+       * @method  constructControlArea
+       * @param   null                  $saveID
+       * @param   null                  $resetID
+       * @param   null                  $saveText
+       * @param   null                  $resetText
+       * @access  private
+       */
       private function constructControlArea( $saveID = null, $resetID = null, $saveText = null, $resetText = null )
       {
-        $this->controlArea = new ControlArea( $saveID, $resetID, $saveText, $resetText );
+        $data = $this->data[self::control];
+        $this->area[self::control] = new ControlArea(
+          $saveID, $resetID, $saveText, $resetText
+        );
       }
     }
   }
