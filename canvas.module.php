@@ -43,7 +43,8 @@
         'style/container.css',
         'style/canvas.css',
         'style/pallet.css',
-        'style/title.css'
+        'style/title.css',
+        'style/control.css'
       ];
       /** @var string $javascriptTag The javascript tag string we can use sprintf to build a javascript tag */
       private static $javascriptTag = '<script src="%s" type="text/javascript"></script>';

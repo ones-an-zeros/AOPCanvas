@@ -96,7 +96,7 @@
         /** Set the button text */
         $this->setButtonText( null );
         /** Construct all the parts */
-        $this->constructParts( $editor->parts );
+        $this->constructParts( [] );
       }
 
       /**
@@ -165,8 +165,10 @@
       private function renderEditor()
       {
         $editor = '';
-        foreach( $this->collection[self::parts] as $part ){
-          $editor .= $part->render();
+        if( count($this->collection[self::parts]) ) {
+          foreach ($this->collection[self::parts] as $part) {
+            $editor .= $part->render();
+          }
         }
         return sprintf(
           $this->collection[self::editorHTML],

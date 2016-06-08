@@ -12,6 +12,8 @@
   namespace Canvas\Editor\Area
   {
 
+    use Canvas\Editor\Area\Canvas\Editable;
+
     /**
      * Class CanvasArea
      *
@@ -20,21 +22,38 @@
     class CanvasArea
     {
       /** ************************************************************* */
+      /**                    COLLECTION CONSTANTS                       */
+      /** ************************************************************* */
+
+      /** @const int containerHTML This is the key for container html in the collection object */
+      const containerHTML = 0;
+      /** @const int canvasHTML This is the key for the canvas html in the collection object */
+      const canvasHTML    = 1;
+      /** @const int containerID This is the key for the container ID in the collection object */
+      const containerID   = 2;
+      /** @const int canvasID This is the key for the Canvas ID in the collection object */
+      const canvasID      = 3;
+      /** @const int width This is the key for width in the collection object */
+      const width         = 4;
+      /** @const int height This is the key for height in the collection object */
+      const height        = 5;
+      /** @const int editable This is the key for the editables in the collection object */
+      const editable      = 6;
+
+      /** ************************************************************* */
       /**                          VARIABLES                            */
       /** ************************************************************* */
 
-      /** @var string $containerID This is the id for the container */
-      private $containerID = CANVAS_CANVAS_CONTAINER_ID;
-      /** @var string $canvasID This is the id for the canvas itself */
-      private $canvasID = CANVAS_CANVAS_ID;
-      /** @var int $width This is the width for the canvas */
-      private $width;
-      /** @var int $height This is the height for the canvas */
-      private $height;
-      /** @var string $container This is the container string to generate the container html */
-      private $container = '<section id="%s">%s</section>';
-      /** @var string $canvas This is the canvas string to generate the canvas html */
-      private $canvas = '<canvas id="%s" style="width:%s;height:%s;">%s</canvas>';
+      /** @var array $collection This is the main collection all data will be stored here */
+      private $collection = [
+        self::containerHTML   => '<section id="%s">%s</section>',
+        self::canvasHTML      => '<div id="%s" style="width:%s;height:%s;">%s</div>',
+        self::containerID     => CANVAS_CANVAS_CONTAINER_ID,
+        self::canvasID        => CANVAS_CANVAS_ID,
+        self::width           => null,
+        self::height          => null,
+        self::editable        => []
+      ];
 
       /** ************************************************************* */
       /**                        BASE METHODS                           */
@@ -50,12 +69,11 @@
        * @param   int         $height
        * @access  public
        */
-      public function __construct( $width, $height )
+      public function __construct( $width, $height, $editables )
       {
-        /** Set the Canvas width */
         $this->setWidth( $width );
-        /** Set the Canvas height */
         $this->setHeight( $height );
+        $this->constructEditables( $editables );
       }
 
       /**
@@ -93,8 +111,33 @@
        */
       public function render()
       {
-        $canvas = sprintf( $this->canvas, $this->canvasID, $this->getWidth(), $this->getHeight(), 'stuff' );
-        return sprintf( $this->container, $this->containerID, $canvas );
+        return sprintf(
+          $this->collection[self::containerHTML],
+          $this->collection[self::containerID],
+          $this->renderCanvas()
+        );
+      }
+
+      private function renderCanvas()
+      {
+        return sprintf(
+            $this->collection[self::canvasHTML],
+            $this->collection[self::canvasID],
+            $this->collection[self::width],
+            $this->collection[self::height],
+            $this->renderEditables()
+        );
+      }
+
+      private function renderEditables()
+      {
+        $HTML = '';
+        if( count( $this->collection[self::editable] ) ){
+          foreach( $this->collection[self::editable] as $editable ){
+            $HTML .= $editable->render();
+          }
+        }
+        return $HTML;
       }
 
       /** ************************************************************* */
@@ -106,28 +149,24 @@
        *
        * Get and return the width attribute with the px attached
        *
-       * @method  getWidth
+       * @method  width
        * @return  string
        * @access  private
        */
-      private function getWidth()
-      {
-        return "{$this->width}px";
-      }
+      private function width()
+      { return $this->collection[self::width]; }
 
       /**
        * Get Height
        *
        * Get and return the height attribute with the px attached
        *
-       * @method  getHeight
+       * @method  height
        * @return  string
        * @access  private
        */
-      private function getHeight()
-      {
-        return "{$this->height}px";
-      }
+      private function height()
+      { return $this->collection[self::height]; }
 
       /** ************************************************************* */
       /**                            SETTERS                            */
@@ -143,9 +182,7 @@
        * @access  private
        */
       private function setWidth( $width )
-      {
-        $this->width = $width;
-      }
+      { $this->collection[self::width] = $width; }
 
       /**
        * Set Height
@@ -157,8 +194,31 @@
        * @access  private
        */
       private function setHeight( $height )
+      { $this->collection[self::height] = $height; }
+
+      /**
+       * Set Editables
+       *
+       * Set the editables array
+       *
+       * @method  setEditables
+       * @param   array         $editables
+       * @access  private
+       */
+      private function setEditables( $editables )
+      { $this->collection[self::editable] = $editables; }
+
+
+
+
+
+      private function constructEditables( $editables )
       {
-        $this->height = $height;
+        if( count($editables) ){
+          foreach( $editables as $key => $editable ){
+            $this->collection[self::editable][] = new Editable( $key, $editable );
+          }
+        }
       }
     }
   }

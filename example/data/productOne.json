@@ -8,8 +8,20 @@
     "height" :    400,
     "editables":  [
       {
-        "dimension"   : { "width": 100, "height" : 25 },
-        "coordinate"  : { "x" : 0, "y" : 0 }
+        "dimension" :   { "width": 180, "height" : 25 },
+        "coordinate" :  { "x" : 10, "y" : 10 },
+        "content" :     "Event Name",
+        "style" :       {
+          "text-align" :  "center"
+        }
+      },
+      {
+        "dimension" :   { "width": 180, "height" : 25 },
+        "coordinate" :  { "x" : 365, "y" : 10 },
+        "content" :     "Footer",
+        "style" :       {
+          "text-align" :  "center"
+        }
       }
     ]
   },
@@ -19,7 +31,7 @@
         "label" :   "Text Areas",
         "editors": [
           {
-            "label" :       "Title",
+            "label" : "Event Name",
             "placeholder" : "Event Name",
             "testValues" : {
               "minLength": 5,

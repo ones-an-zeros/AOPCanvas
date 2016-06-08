@@ -134,8 +134,10 @@
       private function renderEditors()
       {
         $html = '';
-        foreach( $this->collection[self::editors] as $editor ){
-          $html .= $editor->render();
+        if( count( $this->collection[self::editors]) ) {
+          foreach ($this->collection[self::editors] as $editor) {
+            $html .= $editor->render();
+          }
         }
         return $html;
       }
@@ -213,8 +215,8 @@
        */
       private function constructEditors( $editors )
       {
-        foreach( $editors as $editor ){
-          $this->collection[self::editors][] = new Editor( $editor );
+        foreach( $editors as $key => $editor ){
+          $this->collection[self::editors][] = new Editor( $key, $editor );
         }
       }
     }

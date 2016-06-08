@@ -152,7 +152,7 @@
        */
       public function render()
       {
-        return sprintf(
+       return sprintf(
           $this->collection[self::containerHTML],
           $this->collection[self::containerID],
           $this->area[self::title]->render().
@@ -220,7 +220,7 @@
       private function constructCanvasArea()
       {
         $data = $this->data[self::canvas];
-        $this->data[self::canvas] = new CanvasArea(
+        $this->area[self::canvas] = new CanvasArea(
           $data[self::canvasWidth],
           $data[self::canvasHeight],
           $data[self::canvasEditables]
@@ -238,7 +238,7 @@
       private function constructPalletArea()
       {
         $data = $this->data[self::pallet];
-        $this->data[self::pallet] = new PalletArea( $data[self::palletGroups] );
+        $this->area[self::pallet] = new PalletArea( $data[self::palletGroups] );
       }
 
       /**
