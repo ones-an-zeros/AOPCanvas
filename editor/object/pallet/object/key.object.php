@@ -31,10 +31,10 @@
 
             public function groupID()
             { return "group:{$this->group()}"; }
-
-
+            
             public function editorID()
             { return "editor:{$this->group()}:{$this->editor()}"; }
+
 
             private function group()
             { return $this->collection[self::group]; }

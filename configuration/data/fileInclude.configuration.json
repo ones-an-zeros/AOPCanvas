@@ -1,0 +1,63 @@
+{
+  "editor": {
+    "directory": {
+      "area": { "directory": {}, "file": [ "canvas.area.php", "control.area.php", "pallet.area.php", "title.area.php" ] },
+      "object": {
+        "directory": {
+          "abstract": {
+            "directory": {},
+            "file": [ "editorPart.abstract.php", "optionEditable.abstract.php", "optionEditor.abstract.php" ]
+          },
+          "canvas": {
+            "directory": {
+              "object": { "directory": {}, "file": [ "coordinate.object.php", "dimension.object.php", "key.object.php" ] }
+            },
+            "file": [ "editable.object.php" ]
+          },
+          "pallet": {
+            "directory": {
+              "abstract":   { "directory": {}, "file": [ "part.abstract.php" ] },
+              "interface":  { "directory": {}, "file": [ "part.interface.php" ] },
+              "editor":     { "directory": {}, "file": [ "select.part.php", "text.part.php" ]  },
+              "object":     { "directory": {}, "file": [ "key.object.php" ] }
+            },
+            "file": [ "editor.object.php", "group.object.php" ]
+          }
+        },
+        "file": []
+      }
+    },
+    "file": [ "editor.object.php" ]
+  },
+  "exception": {
+    "directory": {
+      "type": {
+        "directory": {},
+        "file": [
+          "arrayToStringConversion.exception.php",
+          "compileError.exception.php",
+          "compileWarning.exception.php",
+          "coreError.exception.php",
+          "coreWarning.exception.php",
+          "includeOnce.exception.php",
+          "missingArgument.exception.php",
+          "propertyOfNoneObject.exception.php",
+          "recoverable.exception.php",
+          "standardDeprecated.exception.php",
+          "standardNotice.exception.php",
+          "standardParse.exception.php",
+          "standardWarning.exception.php",
+          "strict.exception.php",
+          "unDefinedConstant.exception.php",
+          "unDefinedIndex.exception.php",
+          "unDefinedVariable.exception.php",
+          "userDeprecated.exception.php",
+          "userError.exception.php",
+          "userNotice.exception.php",
+          "userWarning.exception.php"
+        ]
+      }
+    },
+    "file": [ "canvasException.object.php", "handler.object.php", "log.object.php" ]
+  }
+}

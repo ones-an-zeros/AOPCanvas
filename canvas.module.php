@@ -15,11 +15,16 @@
 
     use Canvas\Editor\Editor;
 
+    use Canvas\Configuration\Configuration;
+
     /** *********************************************************************************************************** */
     /**                                                  INCLUDES                                                   */
     /** *********************************************************************************************************** */
 
-    include_once('configuration/include.configuration.php');
+    include_once('configuration/configuration.object.php');
+    
+    define( "CanvasConfiguration", Configuration::getInstance() );
+
 
 
     /**
