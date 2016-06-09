@@ -1,59 +1,57 @@
 <?php
 
-    namespace Canvas\Configuration
+    namespace Canvas\Configuration\Object
     {
 
-        include_once('abstract' . DIRECTORY_SEPARATOR . 'configuration.abstract.php');
-
-        include_once('object' . DIRECTORY_SEPARATOR . 'fileInclude.object.php');
-
-        include_once('object' . DIRECTORY_SEPARATOR . 'option.object.php');
-
-        include_once('object' . DIRECTORY_SEPARATOR . 'layout.object.php' );
-
-
-        use Canvas\Configuration\Object\FileInclude;
-        use Canvas\Configuration\Object\Option;
-        use Canvas\Configuration\Object\Layout;
-
-        class Configuration
+        class Option extends Configuration
         {
 
-            const fileInclude   = 0;
+            const developmentMode = 0;
 
-            const option        = 1;
 
-            const layout        = 2;
+            private $legend = [
+                self::developmentMode => 'developmentMode'
+            ];
 
 
             private $collection = [
-                self::fileInclude   => null,
-                self::option        => null,
-                self::layout        => null
+                self::developmentMode => false
             ];
 
-            private static function constructor()
+
+            protected static $dataFile = "option.configuration.json";
+
+
+            protected static function constructor()
             {
-
                 $instance = self::getInstance();
+                parent::constructor( $instance );
+                $instance->processData( $instance->parseDataFile( self::$dataFile ) );
+            }
 
-                $instance->constructFileInclude();
+            private function processData( $data )
+            {
+                foreach( $this->legend as $key => $value ){
+                    if( isset($data->{$value}) ){
+                        $this->setValue( $key, $value );
+                    }
+                }
+            }
 
-                $instance->constructOption();
-
-                $instance->constructLayout();
+            private function setValue( $key, $value )
+            {
+                switch( $key ){
+                    case self::developmentMode: $this->setDevelopmentMode( $value ); break;
+                }
             }
 
 
+            public function developmentMode()
+            { return $this->collection[self::developmentMode]; }
 
-            private function constructFileInclude()
-            { $this->collection[self::fileInclude] = FileInclude::getInstance(); }
 
-            private function constructOption()
-            { $this->collection[self::option] = Option::getInstance(); }
-
-            private function constructLayout()
-            { $this->collection[self::layout] = Layout::getInstance(); }
+            private function setDevelopmentMode( $developmentMode )
+            { $this->collection[self::developmentMode] = $developmentMode; }
 
             /** *********************************************************************************************************** */
             /**                                               SINGLETON                                                     */
@@ -123,4 +121,3 @@
             }
         }
     }
-
