@@ -8,16 +8,13 @@
 
             const developmentMode = 0;
 
-
             private $legend = [
                 self::developmentMode => 'developmentMode'
             ];
 
-
             private $collection = [
                 self::developmentMode => false
             ];
-
 
             protected static $dataFile = "option.configuration.json";
 
@@ -44,7 +41,6 @@
                     case self::developmentMode: $this->setDevelopmentMode( $value ); break;
                 }
             }
-
 
             public function developmentMode()
             { return $this->collection[self::developmentMode]; }

@@ -20,12 +20,14 @@
 
             private function constructIncludes( $data, $path = [] )
             {
-                foreach( $data as $name => $parts ){
-                    array_push( $path, $name );
-                    $this->file( $parts->file, $path );
-                    $this->directory( $parts->directory, $path );
+                if( count($data) ) {
+                    foreach ($data as $name => $parts) {
+                        $loopPath = $path;
+                        array_push($loopPath, $name);
+                        $this->constructIncludes($data->{$name}->directory, $loopPath);
+                        $this->file($data->{$name}->file, $loopPath);
+                    }
                 }
-
             }
 
             private function file( $data, $path )
@@ -36,19 +38,6 @@
                     }
                 }
             }
-
-
-            private function directory( $data, $path )
-            {
-                foreach( $data as $name => $parts ){
-                    $pathHolder = $path;
-                    array_push( $pathHolder, $name );
-                    $this->file( $parts->file, $pathHolder );
-                    $this->directory( $parts->directory, $pathHolder );
-
-                }
-            }
-
 
             private function includeFile( $file, $path )
             {

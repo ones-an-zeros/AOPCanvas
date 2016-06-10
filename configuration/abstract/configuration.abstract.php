@@ -6,10 +6,10 @@
         abstract class Configuration
         {
             protected $dataDirectory = null;
-            
+
             protected static function constructor( $instance )
             {
-                $instance->dataDirectory = substr( __DIR__, 0, -6 ).'data'.DIRECTORY_SEPARATOR;
+                $instance->dataDirectory = substr( __DIR__, 0, -8 ).'data'.DIRECTORY_SEPARATOR;
             }
 
             protected function parseDataFile( $dataFile )

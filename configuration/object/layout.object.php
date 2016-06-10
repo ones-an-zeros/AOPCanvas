@@ -6,7 +6,7 @@ namespace Canvas\Configuration\Object
     class Layout extends Configuration
     {
 
-        protected static $dataFile = "Layout.configuration.json";
+        protected static $dataFile = "layout.configuration.json";
 
 
         protected static function constructor()
@@ -18,7 +18,7 @@ namespace Canvas\Configuration\Object
 
         private function processData( $data )
         {
-            
+
         }
 
 
