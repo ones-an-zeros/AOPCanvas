@@ -7,8 +7,10 @@
   },
   "canvas": {
     "id": "canvasCanvasContainerID",
-    "product": {
-      "id": "canvasProductCanvasID"
+    "children": {
+      "product": {
+        "id": "canvasProductCanvasID"
+      }
     }
   },
   "pallet": {
@@ -16,9 +18,11 @@
   },
   "control": {
     "id": "canvasControlID",
-    "save": {
-      "id": "canvasSaveButton",
-      "text": "Save"
+    "children": {
+      "save": {
+        "id": "canvasSaveButton",
+        "text": "Save"
+      }
     },
     "reset": {
       "id": "canvasResetButton",
