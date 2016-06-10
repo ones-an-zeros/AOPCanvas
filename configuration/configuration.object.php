@@ -11,10 +11,13 @@
 
         include_once('object' . DIRECTORY_SEPARATOR . 'layout.object.php' );
 
+        include_once('object' . DIRECTORY_SEPARATOR . 'constant.object.php' );
+
 
         use Canvas\Configuration\Object\FileInclude;
         use Canvas\Configuration\Object\Option;
         use Canvas\Configuration\Object\Layout;
+        use Canvas\Configuration\Object\Constant;
 
         class Configuration
         {
@@ -25,11 +28,14 @@
 
             const layout        = 2;
 
+            const constant      = 3;
+
 
             private $collection = [
                 self::fileInclude   => null,
                 self::option        => null,
-                self::layout        => null
+                self::layout        => null,
+                self::constant      => null
             ];
 
             private static function constructor()
@@ -42,8 +48,18 @@
                 $instance->constructOption();
 
                 $instance->constructLayout();
+
+                $instance->constructConstant();
             }
 
+            public function option()
+            { return $this->collection[self::option]; }
+
+            public function layout()
+            { return $this->collection[self::layout]; }
+
+            public function constant()
+            { return $this->collection[self::constant]; }
 
 
             private function constructFileInclude()
@@ -54,6 +70,9 @@
 
             private function constructLayout()
             { $this->collection[self::layout] = Layout::getInstance(); }
+
+            private function constructConstant()
+            { $this->collection[self::constant] = Constant::getInstance(); }
 
             /** *********************************************************************************************************** */
             /**                                               SINGLETON                                                     */
