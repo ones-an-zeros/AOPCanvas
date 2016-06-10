@@ -12,6 +12,8 @@
   namespace Canvas\Editor\Area
   {
 
+    use Canvas\Configuration\Object\Layout;
+
     /**
      * Class TitleArea
      *
@@ -26,7 +28,7 @@
       /** ************************************************************* */
 
       /** @var string $id The id of the canvas container element */
-      private $id = CANVAS_TITLE_ID;
+      private $id = null;
       /** @var string $html The html string to populate when making the html */
       private $html = '<section id="%s"><h1>%s</h1><h2>%s</h2></section>';
       /** @var string $productTitle The product title for editor */
@@ -50,6 +52,9 @@
        */
       public function __construct( $productTitle, $palletTitle )
       {
+        $layout = Layout::getInstance();
+        $this->id = $layout->title()->id();
+
         /** @var string $this->productTitle The name of the product */
         $this->setProductTitle( $productTitle );
         /** @var string palletTitle The pallet title */

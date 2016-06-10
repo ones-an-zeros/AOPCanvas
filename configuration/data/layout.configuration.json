@@ -9,7 +9,7 @@
     "id": "canvasCanvasContainerID",
     "children": {
       "product": {
-        "id": "canvasProductCanvasID"
+        "id": "canvasCanvasID"
       }
     }
   },
@@ -22,11 +22,11 @@
       "save": {
         "id": "canvasSaveButton",
         "text": "Save"
+      },
+      "reset": {
+        "id": "canvasResetButton",
+        "text": "Reset"
       }
-    },
-    "reset": {
-      "id": "canvasResetButton",
-      "text": "Reset"
     }
   }
 }

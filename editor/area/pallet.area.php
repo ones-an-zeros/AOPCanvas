@@ -18,6 +18,8 @@
     /** Import the Group class into this namespace */
     use \Canvas\Editor\Area\Pallet\Group;
 
+    use Canvas\Configuration\Object\Layout;
+
     /**
      * Class PalletArea
      *
@@ -62,7 +64,10 @@
        */
       public function __construct( $groups )
       {
-        $this->setContainerID();
+        $layout = Layout::getInstance();
+        $this->collection[self::containerID]  = $layout->pallet()->id();
+
+
         $this->constructGroups( $groups );
       }
 

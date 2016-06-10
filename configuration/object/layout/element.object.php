@@ -8,7 +8,7 @@
 
       const id      = 0;
 
-      const text    = 0;
+      const text    = 1;
 
       private $collection = [
         self::id    => null,

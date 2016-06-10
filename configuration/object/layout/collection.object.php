@@ -26,7 +26,7 @@
       public function id( $selector = null )
       {
         $element = $this->selector( $selector );
-        if( $element === null ){
+        if( !$element ){
           return "ID not set!";
         }
         return $element->id();
@@ -34,8 +34,9 @@
 
       public function text( $selector = null )
       {
+
         $element = $this->selector( $selector );
-        if( $element === null ){
+        if( !$element ){
           return "Text not set!";
         }
         return $element->text();
@@ -51,7 +52,7 @@
         if( $name === null ){
           return $this->main;
         }
-        if( array_key_exists( $this->children, $name) ){
+        if( array_key_exists( $name, $this->children) ){
           return $this->children[$name];
         }
         return false;

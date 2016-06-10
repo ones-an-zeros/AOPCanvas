@@ -105,7 +105,20 @@
         }
       }
 
-      
+      public function container()
+      { return $this->collection[self::container]; }
+
+      public function title()
+      { return $this->collection[self::title]; }
+
+      public function canvas()
+      { return $this->collection[self::canvas]; }
+
+      public function pallet()
+      { return $this->collection[self::pallet]; }
+
+      public function control()
+      { return $this->collection[self::control]; }
 
 
 

@@ -13,6 +13,7 @@
   {
 
     use Canvas\Editor\Area\Canvas\Editable;
+    use Canvas\Configuration\Object\Layout;
 
     /**
      * Class CanvasArea
@@ -48,8 +49,8 @@
       private $collection = [
         self::containerHTML   => '<section id="%s">%s</section>',
         self::canvasHTML      => '<div id="%s" style="width:%s;height:%s;">%s</div>',
-        self::containerID     => CANVAS_CANVAS_CONTAINER_ID,
-        self::canvasID        => CANVAS_CANVAS_ID,
+        self::containerID     => null,
+        self::canvasID        => null,
         self::width           => null,
         self::height          => null,
         self::editable        => []
@@ -71,6 +72,9 @@
        */
       public function __construct( $width, $height, $editables )
       {
+        $layout = Layout::getInstance();
+        $this->collection[self::containerID]  = $layout->canvas()->id();
+        $this->collection[self::canvasID]     = $layout->canvas()->id('product');
         $this->setWidth( $width );
         $this->setHeight( $height );
         $this->constructEditables( $editables );

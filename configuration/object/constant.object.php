@@ -24,18 +24,18 @@ namespace Canvas\Configuration\Object
 
         protected static function constructor()
         {
-            $instance = self::getInstance();
-            parent::constructor( $instance );
-            $instance->processData( $instance->parseDataFile( self::$dataFile ) );
+          $instance = self::getInstance();
+          parent::constructor( $instance );
+          $instance->processData( $instance->parseDataFile( self::$dataFile ) );
         }
 
         private function processData( $data )
         {
-            foreach( $this->legend as $key => $value ){
-                if( isset($data->{$value}) ){
-                    $this->setValue( $key, $value );
-                }
+          foreach( $this->legend as $key => $value ){
+            if( isset( $data->{$value} ) ){
+              $this->setValue( $key, $data->{$value} );
             }
+          }
         }
 
         private function setValue( $key, $value )

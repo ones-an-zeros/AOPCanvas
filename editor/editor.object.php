@@ -18,6 +18,7 @@
     use Canvas\Editor\Area\PalletArea;
     use Canvas\Editor\Area\TitleArea;
     use Canvas\Editor\Area\CanvasArea;
+    use Canvas\Configuration\Object\Layout;
 
     /**
      * Class Editor
@@ -73,7 +74,7 @@
 
       private $collection = [
         self::canvasModule  => null,
-        self::containerID   => CANVAS_CONTAINER_ID,
+        self::containerID   => null,
         self::containerHTML => '<div id="%s">%s<div style="clear:left;"></div></div>'
       ];
 
@@ -106,7 +107,9 @@
        */
       public function __construct( $data )
       {
-        /** Parse all of the data into the collectios */
+        $layout = Layout::getInstance();
+        $this->collection[self::containerID] = $layout->container()->id();
+        /** Parse all of the data into the collection */
         $this->parseData( $data );
         /** Set the Canvas Module so we have access to our parent */
         $this->setCanvasModule();

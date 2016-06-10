@@ -12,6 +12,8 @@
   namespace Canvas\Editor\Area
   {
 
+    use Canvas\Configuration\Object\Layout;
+
     /**
      * Class ControlArea
      *
@@ -48,15 +50,18 @@
       public function __construct( $saveID = null, $resetID = null, $saveText = null, $resetText = null )
       {
 
-        $this->setContainerID();
+        $layout = Layout::getInstance();
+        $this->containerID  = $layout->control()->id();
+        $this->saveID       = $layout->control()->id('save');
+        $this->resetID      = $layout->control()->id('reset');
+        $this->saveText       = $layout->control()->text('save');
+        $this->resetText      = $layout->control()->text('reset');
 
-        $this->setSaveID( $saveID );
 
-        $this->setResetID( $resetID );
 
-        $this->setSaveText( $saveText );
+        //$this->setSaveText( $saveText );
 
-        $this->setResetText( $resetText );
+        //$this->setResetText( $resetText );
       }
 
       public function __destruct()
