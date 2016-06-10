@@ -18,10 +18,15 @@
             "directory": {
               "abstract":   { "directory": {}, "file": [ "part.abstract.php" ] },
               "interface":  { "directory": {}, "file": [ "part.interface.php" ] },
-              "editor":     { "directory": {}, "file": [ "select.part.php", "text.part.php" ]  },
+              "editor":     {
+                "directory": {
+                  "select": { "directory": {}, "file": [ "option.object.php" ] }
+                },
+                "file": [ "select.part.php", "text.part.php" ]
+              },
               "object":     { "directory": {}, "file": [ "key.object.php" ] }
             },
-            "file": [ "editor.object.php", "group.object.php" ]
+            "file": [ "editor.object.php", "group.object.php", "action.object.php" ]
           }
         },
         "file": []

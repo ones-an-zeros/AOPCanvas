@@ -135,7 +135,7 @@
       {
         $html = '';
         if( count( $this->collection[self::editors]) ) {
-          foreach ($this->collection[self::editors] as $editor) {
+          foreach ($this->collection[self::editors] as $editor){
             $html .= $editor->render();
           }
         }

@@ -28,51 +28,99 @@
   "pallet" : {
     "groups" : [
       {
-        "label" :   "Text Areas",
+        "label": "Paper",
         "editors": [
           {
-            "label" : "Event Name",
-            "placeholder" : "Event Name",
-            "testValues" : {
-              "minLength": 5,
-              "maxLength": 15
-            },
-            "testMessages" : {
-              "minLength": "Your event name must be at least %s characters long!",
-              "maxLength": "Your event name must be no longer than %s characters long!"
-            }
+            "label": "Type",
+            "parts": [
+              {
+                "type": 1,
+                "label": "Type",
+                "placeholder": "Paper Type...",
+                "options": [
+                  { "value": 0, "text": "Vellum" },
+                  { "value": 1, "text": "Index" },
+                  { "value": 2, "text": "Coated" },
+                  { "value": 3, "text": "Astrobright" },
+                  { "value": 4, "text": "Recycled Gloss Cover" },
+                  { "value": 5, "text": "Gloss Cover w/ Security" }
+                ],
+                "action": {
+                  "type": "update",
+                  "target": "container",
+                  "attribute": null
+                }
+              }
+            ]
           },
           {
-            "label" :       "Footer",
-            "placeholder" : "Event Name",
-            "testValues" : {
-              "minLength": 5,
-              "maxLength": 15
-            },
-            "testMessages" : {
-              "minLength": "Your event name must be at least %s characters long!",
-              "maxLength": "Your event name must be no longer than %s characters long!"
-            }
+            "label": "Color",
+            "parts": [
+              {
+                "type": 1,
+                "label": "Color",
+                "placeholder": "Pick a color...",
+                "options": [
+                  { "value": 0, "text": "Blue",       "style": { "background-color": "#A9C8DA" } },
+                  { "value": 1, "text": "Goldenrod",  "style": { "background-color": "#F3CE65" } },
+                  { "value": 2, "text": "Gray",       "style": { "background-color": "#C1BBC0" } },
+                  { "value": 3, "text": "Green",      "style": { "background-color": "#ACCFBB" } },
+                  { "value": 4, "text": "Ivory",      "style": { "background-color": "#FFECD4" } },
+                  { "value": 5, "text": "Lilac",      "style": { "background-color": "#D2C7DC" } },
+                  { "value": 6, "text": "Pink",       "style": { "background-color": "#F9B4C6" } },
+                  { "value": 7, "text": "White",      "style": { "background-color": "#FFFFFF" } },
+                  { "value": 8, "text": "Yellow",     "style": { "background-color": "#FFEE9F" } }
+                ],
+                "action": {
+                  "type": "style",
+                  "target": "container",
+                  "attribute": "background"
+                }
+              }
+            ]
           }
         ]
       },
       {
-        "label"   : "Images",
-        "editors" : [
-
+        "label" :   "Text Areas",
+        "editors": [
+          {
+            "label" : "Event Name",
+            "parts": [
+              {
+                "type": 0,
+                "label": "Event Name",
+                "placeholder": "Event Name",
+                "testValues": {
+                  "minLength": 5,
+                  "maxLength": 15
+                },
+                "testMessages" : {
+                  "minLength": "Your event name must be at least %s characters long!",
+                  "maxLength": "Your event name must be no longer than %s characters long!"
+                }
+              }
+            ]
+          },
+          {
+            "label" :       "Footer",
+            "parts": [
+              {
+                "type": 0,
+                "label": "Event Name",
+                "placeholder": "Event Name",
+                "testValues": {
+                  "minLength": 5,
+                  "maxLength": 15
+                },
+                "testMessages" : {
+                  "minLength": "Your event name must be at least %s characters long!",
+                  "maxLength": "Your event name must be no longer than %s characters long!"
+                }
+              }
+            ]
+          }
         ]
-      },
-      {
-        "label"   : "Colors",
-        "editors" : [
-
-        ]
-      }
-    ],
-    "editors": [
-      {
-        "label" : "Header",
-        "parts" : []
       }
     ]
   }

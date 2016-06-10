@@ -62,6 +62,19 @@
         return sprintf( $this->labelHTML, $for, $label );
       }
 
+
+      protected function renderStyle( $styles )
+      {
+        if( !count( $styles ) ) {
+          return "";
+        }
+        $html = ' style="';
+        foreach( $styles as $name => $value ){
+          $html .= $name.':'.$value.';';
+        }
+        return $html.'"';
+      }
+
       /** ************************************************************* */
       /**                           GETTERS                             */
       /** ************************************************************* */

@@ -18,6 +18,8 @@
     /** Bring the text part object into this namespace */
     use \Canvas\Editor\Area\Pallet\Editor\Text;
 
+    use \Canvas\Editor\Area\Pallet\Editor\Select;
+
     /**
      * Class Editor
      *
@@ -54,10 +56,14 @@
       /** @const int parts The key for the parts in the collection */
       const parts           = 11;
 
+
+
       /** ************************************************************* */
       /**                          VARIABLES                            */
       /** ************************************************************* */
 
+      private $namespace = '\\Canvas\\Editor\\Area\\Pallet\\Editor\\';
+      
       /** @var array $collection This is the main collection all data is stored here */
       private $collection = [
         self::containerHTML   => '<li id="%s" class="editor">%s%s</li>',
@@ -76,7 +82,8 @@
 
       /** @var array $partClasses This is a collection of part classes */
       protected $partClasses = [
-        0 => 'text'
+        0 => 'Text',
+        1 => 'Select'
       ];
 
       /** ************************************************************* */
@@ -96,7 +103,7 @@
         /** Set the button text */
         $this->setButtonText( null );
         /** Construct all the parts */
-        $this->constructParts( [] );
+        $this->constructParts( $editor->parts );
       }
 
       /**
@@ -360,8 +367,12 @@
       private function constructParts( $parts )
       {
         foreach( $parts as $part ){
-          $this->collection[self::parts][] = new Text( $part );
+          $class = $this->partClass($part->type);
+          $this->collection[self::parts][] = new $class( $part );
         }
       }
+
+      private function partClass( $type )
+      { return $this->namespace.$this->partClasses[$type]; }
     }
   }
