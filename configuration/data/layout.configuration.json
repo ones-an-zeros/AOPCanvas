@@ -1,14 +1,28 @@
 {
+  "container": {
+    "id": "canvasContainer"
+  },
   "title": {
-
+    "id": "canvasTitleID"
   },
   "canvas": {
-
+    "id": "canvasCanvasContainerID",
+    "product": {
+      "id": "canvasProductCanvasID"
+    }
   },
   "pallet": {
-
+    "id": "canvasPalletID"
   },
   "control": {
-
+    "id": "canvasControlID",
+    "save": {
+      "id": "canvasSaveButton",
+      "text": "Save"
+    },
+    "reset": {
+      "id": "canvasResetButton",
+      "text": "Reset"
+    }
   }
 }
