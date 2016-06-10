@@ -66,6 +66,8 @@
       /**                                                OBJECTS                                                      */
       /** *********************************************************************************************************** */
 
+      private $configuration;
+
       private $log;
 
       private $styleBuilder;
@@ -80,7 +82,7 @@
       private function constructor()
       {
         try {
-
+          $this->configuration = Configuration::getInstance();
         } catch ( \Exception $exception ){
           self::exception( $exception );
         }
@@ -147,9 +149,10 @@
       public static function javascript()
       {
         try {
+          $instance = self::getInstance();
           $html = self::buildTags (self::$javascriptFiles, self::$javascriptTag);
           /** Check if we are in development mode */
-          if (CANVAS_DEVELOPMENT_MODE) {
+          if ($instance->configuration->option()->developmentMode()) {
             /** Append the development javascript files */
             $html .= self::buildTags (['javascript/development.object.js'], self::$javascriptTag);
           }
@@ -172,9 +175,10 @@
       public static function css()
       {
         try{
+          $instance = self::getInstance();
           $html = self::buildTags( self::$cssFiles, self::$cssTag );
           /** Check if we are in development mode */
-          if( CANVAS_DEVELOPMENT_MODE ){
+          if( $instance->configuration->option()->developmentMode() ){
             /** Append the development css files */
             $html .= self::buildTags( ['style/development.css'], self::$cssTag );
           }
@@ -199,8 +203,13 @@
       private static function buildTags( $files, $tag )
       {
         try {
+          $instance = self::getInstance();
+
+
           $html = '';
-          $path = CANVAS_DEVELOPMENT_MODE ? CANVAS_DEVELOPMENT_URL : CANVAS_LIVE_URL;
+          $path = $instance->configuration->option()->developmentMode()
+              ? $instance->configuration->constant()->developmentUrl() :
+                $instance->configuration->constant()->liveUrl();
           foreach ($files as $file) {
             $fullpath = $path.$file;
             if( substr($file, 0, 2) === '//' ){
