@@ -4,42 +4,44 @@
   {
 
     use Canvas\Editor\Area\Pallet\Editor\Select\Option;
-    use Canvas\Editor\Area\Pallet\Action;
 
     class Select extends PartAbstract implements PartInterface
     {
-      const containerHTML   = 0;
 
-      const selectHTML      = 1;
+      const selectHTML    = 0;
 
-      const optionHTML      = 2;
+      const optionHTML    = 1;
 
-      const label           = 3;
+      const label         = 2;
 
-      const placeholder     = 4;
+      const placeholder   = 3;
 
-      const options         = 5;
-
-      const action          = 6;
+      const options       = 4;
 
 
       private $collection = [
-        self::containerHTML   => '<span class="action-data" %s>%s</span>',
-        self::selectHTML      => '<select id="%s">%s</select>',
-        self::optionHTML      => '<option%s value="%s">%s</option>',
-        self::label           => null,
-        self::placeholder     => null,
-        self::options         => [],
-        self::action          => null
+        self::selectHTML  => '<select id="%s">%s</select>',
+        self::optionHTML  => '<option%s value="%s">%s</option>',
+        self::label       => null,
+        self::placeholder => null,
+        self::options     => []
       ];
 
 
       public function __construct( $data )
       {
         $this->setLabel( $data->label );
-        $this->setPlaceholder( $data->placeholder );
+
+        $this->setPlaceholder( $data->placeholder) ;
+
         $this->constructOptions( $data->options );
+
         $this->constructAction( $data->action );
+
+
+
+
+        $this->constructTest( $data );
       }
 
       public function __destruct()
@@ -48,62 +50,44 @@
       }
 
       public function render()
-      {
-        return sprintf(
-            $this->collection[self::containerHTML],
-            $this->collection[self::action]->render(),
-            $this->renderLabel().$this->renderSelect()
-
-        );
-      }
+      { return $this->renderContainer($this->renderLabel().$this->renderSelect ()); }
 
       private function renderSelect()
       {
         return sprintf(
-            $this->collection[self::selectHTML],
-            "",
-            $this->renderOptions()
+          $this->collection[self::selectHTML],
+          "",
+          $this->renderOptions ()
         );
       }
 
       private function renderOptions()
       {
-        $html = sprintf($this->collection[self::optionHTML], null, null, $this->collection[self::placeholder]);
-        foreach( $this->collection[self::options] as $option ){
-          $html .= sprintf(
-              $this->collection[self::optionHTML],
-              $this->renderStyle( $option->style() ),
-              $option->value(),
-              $option->text()
+        $html = sprintf ($this->collection[self::optionHTML], null, null, $this->collection[self::placeholder]);
+        foreach ($this->collection[self::options] as $option) {
+          $html .= sprintf (
+            $this->collection[self::optionHTML],
+            $this->renderStyle ($option->style ()),
+            $option->value (),
+            $option->text ()
           );
         }
         return $html;
       }
 
-
-
-      private function setPlaceholder( $placeholder )
+      private function setPlaceholder($placeholder)
       { $this->collection[self::placeholder] = $placeholder; }
 
 
-      private function constructOptions( $data )
+      private function constructOptions($data)
       {
-        foreach( $data as $option ){
+        foreach ($data as $option) {
           $this->collection[self::options][] = new Option(
-              $option->value,
-              $option->text,
-              isset( $option->style )?$option->style:[]
+            $option->value,
+            $option->text,
+            isset($option->style) ? $option->style : []
           );
         }
-      }
-
-      private function constructAction( $data )
-      {
-        $this->collection[self::action] = new Action(
-            $data->type,
-            $data->target,
-            $data->attribute
-        );
       }
     }
   }

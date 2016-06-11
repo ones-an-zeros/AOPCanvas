@@ -24,9 +24,9 @@
                 },
                 "file": [ "select.part.php", "text.part.php" ]
               },
-              "object":     { "directory": {}, "file": [ "key.object.php" ] }
+              "object":     { "directory": {}, "file": [ "key.object.php", "action.object.php", "test.object.php" ] }
             },
-            "file": [ "editor.object.php", "group.object.php", "action.object.php" ]
+            "file": [ "editor.object.php", "group.object.php" ]
           }
         },
         "file": []

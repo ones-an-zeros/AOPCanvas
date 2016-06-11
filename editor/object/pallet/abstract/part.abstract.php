@@ -12,6 +12,10 @@
   namespace Canvas\Editor\Area\Pallet\Editor
   {
 
+    use Canvas\Editor\Area\Pallet\Action;
+
+    use Canvas\Editor\Area\Pallet\Test;
+
     /**
      * Class PartAbstract
      *
@@ -23,22 +27,31 @@
       /**                           VARIABLES                           */
       /** ************************************************************* */
 
-      /** @var int $type The part type id */
       protected $type;
-      /** @var int $key The part key */
+
       protected $key;
-      /** @var string The label for this part */
+
       protected $label;
+
+      protected $action;
+
+      protected $test;
 
       /** ************************************************************* */
       /**                        HTML CONTAINERS                        */
       /** ************************************************************* */
 
-      protected $labelHTML = '<label for="%s">%s</label>';
+      protected $containerHTML  = '<span class="editor-part">%s %s %s</span>';
+
+      protected $labelHTML      = '<label for="%s">%s</label>';
 
       /** ************************************************************* */
       /**                           RENDER                              */
       /** ************************************************************* */
+
+      protected function renderContainer( $content )
+      { return sprintf( $this->containerHTML, $content, $this->action->render(), $this->test->render() ); }
+
 
       /**
        * Render Label
@@ -176,5 +189,21 @@
         $this->label = $label;
       }
 
+
+      protected function constructAction( $data )
+      {
+        $this->action = new Action(
+          $data->type,
+          $data->target,
+          $data->attribute
+        );
+      }
+
+      protected function constructTest( $data )
+      {
+        $values   = isset($data->testValues)?$data->testValues:[];
+        $messages = isset($data->testMessages)?$data->testMessages:[];
+        $this->test = new Test( $values, $messages );
+      }
     }
   }

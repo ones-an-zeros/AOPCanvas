@@ -36,18 +36,22 @@
       /**                        BASE METHODS                           */
       /** ************************************************************* */
 
-      public function __construct( $part )
+      public function __construct( $data )
       {
 
-        $this->setType( $part->type );
+        $this->setType( $data->type );
 
-        $this->setLabel( $part->label );
+        $this->setLabel( $data->label );
 
-        $this->setPlaceholder( $part->placeholder );
+        $this->setPlaceholder( $data->placeholder );
 
-        $this->setTestValues( $part->testValues );
+        $this->setTestValues( $data->testValues );
 
-        $this->setTestMessages( $part->testMessages );
+        $this->setTestMessages( $data->testMessages );
+
+        $this->constructAction( $data->action );
+
+        $this->constructTest( $data );
 
       }
 
@@ -61,10 +65,8 @@
       /** ************************************************************* */
 
       public function render()
-      {
-        return $this->renderLabel().$this->renderInput();
-      }
-
+      { return $this->renderContainer($this->renderLabel().$this->renderInput()); }
+      
       private function renderInput()
       {
         return sprintf( $this->inputHTML, $this->getKey(), $this->getKey(), $this->getPlaceholder() );

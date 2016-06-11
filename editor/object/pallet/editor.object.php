@@ -15,11 +15,6 @@
     /**                      NAMESPACE IMPORT                         */
     /** ************************************************************* */
 
-    /** Bring the text part object into this namespace */
-    use \Canvas\Editor\Area\Pallet\Editor\Text;
-
-    use \Canvas\Editor\Area\Pallet\Editor\Select;
-
     /**
      * Class Editor
      *

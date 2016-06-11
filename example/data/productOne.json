@@ -72,7 +72,7 @@
                   { "value": 8, "text": "Yellow",     "style": { "background-color": "#FFEE9F" } }
                 ],
                 "action": {
-                  "type": "style",
+                  "type": 1,
                   "target": "container",
                   "attribute": "background"
                 }
@@ -98,12 +98,17 @@
                 "testMessages" : {
                   "minLength": "Your event name must be at least %s characters long!",
                   "maxLength": "Your event name must be no longer than %s characters long!"
+                },
+                "action": {
+                  "type": 0,
+                  "target": "editable:0:0",
+                  "attribute": null
                 }
               }
             ]
           },
           {
-            "label" :       "Footer",
+            "label" : "Footer",
             "parts": [
               {
                 "type": 0,
@@ -116,6 +121,11 @@
                 "testMessages" : {
                   "minLength": "Your event name must be at least %s characters long!",
                   "maxLength": "Your event name must be no longer than %s characters long!"
+                },
+                "action": {
+                  "type": 0,
+                  "target": "editable:0:1",
+                  "attribute": null
                 }
               }
             ]

@@ -1,52 +1,51 @@
 <?php
 
-    namespace Canvas\Editor\Area\Pallet {
+  namespace Canvas\Editor\Area\Pallet
+  {
 
-        class Key
-        {
-            const group = 0;
+    class Key
+    {
+      const group = 0;
 
-            const editor = 1;
+      const editor = 1;
 
-            private $collection = [
-                self::group => null,
-                self::editor => null
-            ];
-
-
-            public function __construct( $group, $editor )
-            {
-                $this->setGroup( $group );
-                $this->setEditor( $editor );
-            }
-
-            public function __destruct()
-            {
-                unset(
-                    $this->collection[self::group],
-                    $this->collection[self::editor],
-                    $this->collection
-                );
-            }
-
-            public function groupID()
-            { return "group:{$this->group()}"; }
-            
-            public function editorID()
-            { return "editor:{$this->group()}:{$this->editor()}"; }
+      private $collection = [
+        self::group => null,
+        self::editor => null
+      ];
 
 
-            private function group()
-            { return $this->collection[self::group]; }
+      public function __construct( $group, $editor )
+      {
+        $this->setGroup( $group );
+        $this->setEditor( $editor );
+      }
 
-            private function editor()
-            { return $this->collection[self::group]; }
+      public function __destruct()
+      {
+        unset(
+          $this->collection[self::group],
+          $this->collection[self::editor],
+          $this->collection
+        );
+      }
 
+      public function groupID()
+      { return "group:{$this->group()}"; }
 
-            private function setGroup( $group )
-            { $this->collection[self::group] = $group; }
+      public function editorID()
+      { return "editor:{$this->group()}:{$this->editor()}"; }
 
-            private function setEditor( $editor )
-            { $this->collection[self::editor] = $editor; }
-        }
+      private function group()
+      { return $this->collection[self::group]; }
+
+      private function editor()
+      { return $this->collection[self::group]; }
+
+      private function setGroup( $group )
+      { $this->collection[self::group] = $group; }
+
+      private function setEditor( $editor )
+      { $this->collection[self::editor] = $editor; }
     }
+  }
