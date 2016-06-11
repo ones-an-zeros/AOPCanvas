@@ -1,33 +1,28 @@
 (function(){
   function Canvas(){
 
-    this.controller = { palette: null, action: null, validation: null, event: null };
-
-    var PalletController      = this.controller.palette;
-    var ActionController      = this.controller.action;
-    var ValidationController  = this.controller.validation;
-    var EventController       = this.controller.event;
+    this.controller = {
+      palette:    new Palette(),
+      action:     new Action(),
+      validation: new Validation(),
+      event:      new Event()
+    };
 
     this.initialize = function(){
-      this.controller.palette     = new Palette( this );
-      this.controller.action      = new Action( this );
-      this.controller.validation  = new Validation( this );
-      this.controller.event       = new Event( this );
+      var Canvas = this;
       $.each( this.controller, function(){
         if(this.hasOwnProperty('initialize')){
-          this.initialize();
+          this.initialize( Canvas );
         }
       });
     };
 
-
-
-
     this.click = function(event){
-      console.log(EventController);
+      window.Canvas.controller.event.handle(
+        event,
+        window.Canvas.controller.event
+      );
     };
   };
-
-
   window.Canvas = new Canvas();
 })();
