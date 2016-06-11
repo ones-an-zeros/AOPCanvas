@@ -55,7 +55,12 @@
       private static $javascriptTag = '<script src="%s" type="text/javascript"></script>';
       /** @var array $javascriptFiles An array of the javascript files */
       private static $javascriptFiles = [
-        'javascript/pallet.object.js',
+        'javascript/controller/palette/group.object.js',
+        'javascript/controller/event.controller.js',
+        'javascript/controller/palette.controller.js',
+        'javascript/controller/action.controller.js',
+        'javascript/controller/validation.controller.js',
+        'javascript/canvas.module.js',
         '//use.fontawesome.com/637b859a5b.js',
         '//code.jquery.com/jquery-1.12.4.min.js'
       ];
@@ -130,7 +135,8 @@
       public static function javascriptOnReady()
       {
         try {
-          return sprintf (self::$onReady, 'CanvasPallet.initialize();');
+          //CanvasPallet.initialize();
+          return sprintf (self::$onReady, 'window.Canvas.initialize();');
         } catch ( \Exception $exception ){
           self::exception( $exception );
         }
