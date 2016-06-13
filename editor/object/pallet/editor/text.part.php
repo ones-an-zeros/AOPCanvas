@@ -16,7 +16,7 @@
      * Class text
      *
      * @package Canvas\Editor\Area\Pallet\Editor
-     */
+     */ 
     class Text extends PartAbstract implements PartInterface
     {
       /** ************************************************************* */
