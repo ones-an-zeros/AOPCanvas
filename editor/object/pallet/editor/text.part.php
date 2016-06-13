@@ -23,7 +23,7 @@
       /**                          VARIABLES                            */
       /** ************************************************************* */
 
-      private $inputHTML = '<input type="text" id="%s" name="%s" placeholder="%s" />';
+      private $inputHTML = '<input type="text" id="%s" name="%s" placeholder="%s" class="part-input" />';
 
       private $placeholder;
 

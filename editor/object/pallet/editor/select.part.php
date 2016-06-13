@@ -20,7 +20,7 @@
 
 
       private $collection = [
-        self::selectHTML  => '<select id="%s">%s</select>',
+        self::selectHTML  => '<select id="%s" class="part-input">%s</select>',
         self::optionHTML  => '<option%s value="%s">%s</option>',
         self::label       => null,
         self::placeholder => null,

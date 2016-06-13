@@ -61,7 +61,7 @@
       
       /** @var array $collection This is the main collection all data is stored here */
       private $collection = [
-        self::containerHTML   => '<li id="%s" class="editor">%s%s</li>',
+        self::containerHTML   => '<li class="editor">%s%s</li>',
         self::iconHTML        => '<i class="fa fa-plus-square" aria-hidden="true">&nbsp;</i>',
         self::labelHTML       => '<span class="editor-button">%s %s</span>',
         self::editorHTML      => '<span class="form">%s%s</span>',
@@ -131,7 +131,6 @@
       {
         return sprintf(
           $this->collection[self::containerHTML],
-          $this->key(),
           $this->renderLabel(),
           $this->renderEditor()
         );

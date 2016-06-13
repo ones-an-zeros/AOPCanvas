@@ -39,7 +39,7 @@
       const key           = 3;
       /** @const int label This is the key for the label in the collection */
       const label         = 4;
-      /** @cosnt int editors This is the key for the editors in the collection */
+      /** @const int editors This is the key for the editors in the collection */
       const editors       = 5;
 
       /** ************************************************************* */
@@ -49,7 +49,7 @@
       /** @var array $collection This is the main collection all information is stored here */
       private $collection = [
         self::containerID   => null,
-        self::containerHTML => '<li id="%s" class="group"><span class="group-button">%s %s</span><ul>%s</ul></li>',
+        self::containerHTML => '<li class="group"><span class="group-button">%s %s</span><ul>%s</ul></li>',
         self::iconHTML      => '<i class="fa fa-plus-square" aria-hidden="true">&nbsp;</i>',
         self::key           => null,
         self::label         => null,
@@ -115,7 +115,6 @@
       {
         return sprintf(
           $this->collection[self::containerHTML],
-          $this->key(),
           $this->collection[self::iconHTML],
           $this->label(),
           $this->renderEditors()
