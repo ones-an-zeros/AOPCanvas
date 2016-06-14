@@ -16,75 +16,67 @@
 }
 
 #canvasPalletID ul li.group{
-  display:            block;
-  width:              244px;
-  margin:             0px;
-  padding:            0px;
+  background:         #F1F1F1;
 }
 
 #canvasPalletID ul li.group span.group-button{
   display:            block;
   width:              244px;
-  height:             35px;
+  height:             30px;
+  line-height:        30px;
+  font-weight:        bold;
+  background:         #5F5F5F;
+  color:              #ffffff;
+  font-size:          18px;
   margin:             0px;
   padding:            0px 0px 0px 10px;
-  font-size:          18px;
-  line-height:        33px;
-  background:         red;
   cursor:             pointer;
 }
 
 #canvasPalletID ul li.group ul{
   display:            none;
   visibility:         hidden;
-  width:              244px;
-  list-style:         none;
   margin:             0px;
   padding:            0px;
 }
 
 #canvasPalletID ul li.group ul li.editor{
-  margin:             0px;
-  padding:            0px;
+
+
 }
 
 #canvasPalletID ul li.group ul li.editor span.editor-button{
-  display:            inline-block;
   width:              244px;
-  height:             20px;
-  margin:             0px;
-  padding:            0px 0px 0px 10px;
-  font-size:          16px;
-  line-height:        20px;
-  background:         red;
+  height:             25px;
+  display:            block;
+  background:         #5F5F5F;
+  color:              #ffffff;
+  line-height:        25px;
+  font-size:          15px;
+  padding:            0px 0px 0px 25px;
   cursor:             pointer;
 }
 
-#canvasPalletID ul li.group ul li span.form{
+#canvasPalletID ul li.group ul li.editor span.form{
+  width:              244px;
   display:            none;
   visibility:         hidden;
-  margin:             0px;
-  padding:            0px;
+  padding:            5px 0px 0px 0px;
 }
 
 #canvasPalletID ul li.group ul li span.form button.submit{
-  margin:             0px;
-  padding:            0px;
-  width:              100%;
-  height:             20px;
-  font-size:          12px;
-  line-height:        15px;
-  border-right:       0px solid white;
-  border-bottom:      0px solid white;
-  border-left:        0px solid white;
-}
-#canvasPalletID ul li.group ul li span.form{
-  margin:             0px;
-  padding:            0px;
+
 }
 
 #canvasPalletID ul li.group ul li span.form label{
-
+  display:        inline-block;
+  width:          75px;
+  font-size:      12px;
+  line-height:    20px;
+  margin:         0px;
+  padding:        0px 5px 0px 0px;
+  font-weight:    bold;
+  text-align:     right;
 }
 
 #canvasPalletID ul li.group ul li span.form input{
@@ -95,8 +87,26 @@
 
 }
 
-#canvasPalletID ul li.group ul li span.form button{
-
+#canvasPalletID ul li.group ul li span.form button.submit{
+  display:        block;
+  width:          244px;
+  height:         26px;
+  background:     #1d9d74;
+  color:          #fff;
+  margin:         5px 0px 0px 0px;
+  padding:        0px 0px 0px 0px;
+  border:         1px solid #198764;
+  font-size:      16px;
+  line-height:    20px;
+  box-shadow:     0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  text-shadow:    0 1px 0 rgba(0, 0, 0, 0.2);
+  cursor:         pointer;
+  font-family:    proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+#canvasPalletID ul li.group ul li span.form button.submit:hover{
+  background-color: #157254;
+  border-color: #0f543e;
+  color: #fff;
 }
 
 /** ACTIVE CLASSES */
@@ -105,18 +115,20 @@
 }
 
 #canvasPalletID ul li.active span.group-button{
-  background:         green;
+  background: #4CAF50;
 }
 
 #canvasPalletID ul li.active ul{
-  display:            block;
-  visibility:         visible;
+  display:    block;
+  visibility: visible;
+
 }
 
 #canvasPalletID ul li.active ul li.active span.editor-button{
-  background:         green;
+  background: #4CAF50;
 }
+
 #canvasPalletID ul li.active ul li.active span.form{
-  display:            block;
-  visibility:         visible;
+  display: block;
+  visibility: visible;
 }

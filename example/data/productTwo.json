@@ -19,7 +19,7 @@
         "key" :         { "group": 0, "editor": 1 },
         "dimension" :   { "width": 180, "height" : 25 },
         "coordinate" :  { "x" : 365, "y" : 10 },
-        "content" :     "copy &copy; 2016",
+        "content" :     "Footer",
         "style" :       { "text-align" :  "center" },
         "parts" :       [ { "editor-part": 0, "type": "content" } ]
       }
@@ -30,6 +30,29 @@
       {
         "label": "Paper",
         "editors": [
+          {
+            "label": "Type",
+            "parts": [
+              {
+                "type": 1,
+                "label": "Type",
+                "placeholder": "Paper Type...",
+                "options": [
+                  { "value": 0, "text": "Vellum" },
+                  { "value": 1, "text": "Index" },
+                  { "value": 2, "text": "Coated" },
+                  { "value": 3, "text": "Astrobright" },
+                  { "value": 4, "text": "Recycled Gloss Cover" },
+                  { "value": 5, "text": "Gloss Cover w/ Security" }
+                ],
+                "action": {
+                  "type": "update",
+                  "target": "container",
+                  "attribute": null
+                }
+              }
+            ]
+          },
           {
             "label": "Color",
             "parts": [
@@ -69,37 +92,29 @@
                 "type": 0,
                 "label": "Event Name",
                 "placeholder": "Event Name",
-                "testValues": { "minLength": 5, "maxLength": 15 },
-                "testMessages" : { "minLength": "Event Name to short!", "maxLength": "Event Name to long!" },
-                "action": { "type": 0, "target": "editable:0:0", "attribute": null }
-              },
-              {
-                "type": 1,
-                "label": "Font",
-                "placeholder": "Select your Font...",
-                "options": [
-                  { "value": 0, "text": "Georgia",            "style": { "font-family": "Georgia, serif" } },
-                  { "value": 1, "text": "Arial",              "style": { "font-family": "Arial, Helvetica, sans-serif" } },
-                  { "value": 2, "text": "Impact",             "style": { "font-family": "Impact, Charcoal, sans-serif" } },
-                  { "value": 3, "text": "Tahoma",             "style": { "font-family": "Tahoma, Geneva, sans-serif" } },
-                  { "value": 4, "text": "Verdana",            "style": { "font-family": "Verdana, Geneva, sans-serif" } }
-                ],
+                "testValues": {
+                  "minLength": 5,
+                  "maxLength": 15
+                },
+                "testMessages" : {
+                  "minLength": "Your event name must be at least %s characters long!",
+                  "maxLength": "Your event name must be no longer than %s characters long!"
+                },
                 "action": {
-                  "type": 3,
+                  "type": 0,
                   "target": "editable:0:0",
-                  "attribute": "font-family",
-                  "data": [ "Georgia, serif", "Arial, Helvetica, sans-serif", "Impact, Charcoal, sans-serif", "Tahoma, Geneva, sans-serif", "Verdana, Geneva, sans-serif" ]
+                  "attribute": null
                 }
               }
             ]
           },
           {
-            "label" : "Copyright",
+            "label" : "Footer",
             "parts": [
               {
                 "type": 0,
-                "label": "Copyright",
-                "placeholder": "copy &copy; 2016",
+                "label": "Event Name",
+                "placeholder": "Event Name",
                 "testValues": {
                   "minLength": 5,
                   "maxLength": 15
@@ -112,24 +127,6 @@
                   "type": 0,
                   "target": "editable:0:1",
                   "attribute": null
-                }
-              },
-              {
-                "type": 1,
-                "label": "Font",
-                "placeholder": "Select your Font...",
-                "options": [
-                  { "value": 0, "text": "Georgia",            "style": { "font-family": "Georgia, serif" } },
-                  { "value": 1, "text": "Arial",              "style": { "font-family": "Arial, Helvetica, sans-serif" } },
-                  { "value": 2, "text": "Impact",             "style": { "font-family": "Impact, Charcoal, sans-serif" } },
-                  { "value": 3, "text": "Tahoma",             "style": { "font-family": "Tahoma, Geneva, sans-serif" } },
-                  { "value": 4, "text": "Verdana",            "style": { "font-family": "Verdana, Geneva, sans-serif" } }
-                ],
-                "action": {
-                  "type": 3,
-                  "target": "editable:0:1",
-                  "attribute": "font-family",
-                  "data": [ "Georgia, serif", "Arial, Helvetica, sans-serif", "Impact, Charcoal, sans-serif", "Tahoma, Geneva, sans-serif", "Verdana, Geneva, sans-serif" ]
                 }
               }
             ]

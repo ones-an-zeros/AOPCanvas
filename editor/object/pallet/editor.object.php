@@ -65,7 +65,7 @@
         self::iconHTML        => '<i class="fa fa-plus-square" aria-hidden="true">&nbsp;</i>',
         self::labelHTML       => '<span class="editor-button">%s %s</span>',
         self::editorHTML      => '<span class="form">%s%s</span>',
-        self::buttonHTML      => '<button id="%s" name="%s" class="submit">%s</button>',
+        self::buttonHTML      => '<button id="%s" name="%s" class="submit"><i class="fa fa-check-square">&nbsp;</i>%s</button>',
         self::containerID     => null,
         self::editorID        => null,
         self::buttonID        => null,
@@ -292,7 +292,7 @@
       private function setLabel( $label = null )
       {
         if( $label === null ){
-          $label = 'No Label Provided';
+          $label = '';
         }
         $this->collection[self::label] = $label;
       }
@@ -308,7 +308,7 @@
       private function setContainerID( $ID = null )
       {
         if( $ID === null ){
-          $ID = 02;
+          $ID = null;
         }
         $this->collection[self::containerID] = $ID;
       }
@@ -324,7 +324,7 @@
       private function setButtonID( $ID = null )
       {
         if( $ID === null ){
-          $ID = 03;
+          $ID = null;
         }
         $this->collection[self::buttonID] = $ID;
       }
@@ -340,7 +340,7 @@
       private function setButtonText( $text = null )
       {
         if( $text === null ){
-          $text = 'Button Text Not Provided';
+          $text = 'Save';
         }
         $this->collection[self::buttonText] = $text;
       }

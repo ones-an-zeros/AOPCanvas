@@ -1,4 +1,145 @@
+/** NEW */
 
+#canvasPalletID{
+  width:              244px;
+  display:            inline-block;
+  float:              left;
+  margin:             0px -1000px 0px 750px;
+  padding:            0px;
+}
+
+/** BASE STYLES */
+#canvasPalletID ul{
+  display:            block;
+  width:              244px;
+  list-style-type:    none;
+  margin:             0px;
+  padding:            0px;
+}
+
+#canvasPalletID ul li.group{
+  display:            block;
+  width:              244px;
+  margin:             0px;
+  padding:            0px;
+  background:         #f3f4f9;
+  color:              #4b4b4b;
+  font-size:          16px;
+  line-height:        29px;
+  text-shadow:        1px 1px 1px #5F5F5F, 0px 0px 0px #EFEFEF, 0px 0px 0px #5F5F5F;
+  border-bottom:      2px solid #999999;
+  -webkit-box-shadow: inset 0px -10px 15px -5px rgba(0,0,0,0.40), inset 0px 10px 15px -5px rgba(0,0,0,0.40);
+  -moz-box-shadow:    inset 0px -10px 15px -5px rgba(0,0,0,0.40), inset 0px 10px 15px -5px rgba(0,0,0,0.40);
+  box-shadow:         inset 0px -10px 15px -5px rgba(0,0,0,0.40), inset 0px 10px 15px -5px rgba(0,0,0,0.40);
+  cursor:             pointer;
+}
+
+#canvasPalletID ul li.group span.group-button{
+  display:            block;
+  width:              244px;
+  height:             35px;
+  margin:             0px;
+  padding:            0px 0px 0px 10px;
+  font-size:          18px;
+  line-height:        33px;
+  cursor:             pointer;
+}
+
+#canvasPalletID ul li.group ul{
+  display:            none;
+  visibility:         hidden;
+  width:              244px;
+  list-style:         none;
+  margin:             0px;
+  padding:            0px;
+}
+
+#canvasPalletID ul li.group ul li.editor{
+  margin:             0px;
+  padding:            0px;
+}
+
+#canvasPalletID ul li.group ul li.editor span.editor-button{
+  display:            inline-block;
+  width:              244px;
+  height:             20px;
+  margin:             0px;
+  padding:            0px 0px 0px 10px;
+  font-size:          16px;
+  line-height:        20px;
+  cursor:             pointer;
+}
+
+#canvasPalletID ul li.group ul li span.form{
+  display:            none;
+  visibility:         hidden;
+  margin:             0px;
+  padding:            0px;
+}
+
+#canvasPalletID ul li.group ul li span.form button.submit{
+  margin:             0px;
+  padding:            0px;
+  width:              100%;
+  height:             20px;
+  font-size:          12px;
+  line-height:        15px;
+  border-right:       0px solid white;
+  border-bottom:      0px solid white;
+  border-left:        0px solid white;
+}
+#canvasPalletID ul li.group ul li span.form{
+  margin:             0px;
+  padding:            0px;
+}
+
+#canvasPalletID ul li.group ul li span.form label{
+
+}
+
+#canvasPalletID ul li.group ul li span.form input{
+
+}
+
+#canvasPalletID ul li.group ul li span.form select{
+
+}
+
+#canvasPalletID ul li.group ul li span.form button{
+
+}
+
+/** ACTIVE CLASSES */
+#canvasPalletID ul li.active{
+  width:              244px;
+  display:            block;
+  height:             auto;
+  background:         #505256;
+  color:              white;
+  cursor:             default;
+  font-size:          16px;
+  line-height:        30px;
+  text-shadow:        1px 1px 1px #505256, 0 0 0 #000, 1px 1px 2px #505256;
+}
+
+#canvasPalletID ul li.active span.group-button{
+}
+
+#canvasPalletID ul li.active ul{
+  display:            block;
+  visibility:         visible;
+}
+
+#canvasPalletID ul li.active ul li.active span.editor-button{
+  background:         green;
+}
+#canvasPalletID ul li.active ul li.active span.form{
+  display:            block;
+  visibility:         visible;
+}
+
+
+/** OLD  */
 #canvasPalletID ul li{
   width:              244px;
   height:             30px;
