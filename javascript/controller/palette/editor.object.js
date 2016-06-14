@@ -21,53 +21,18 @@ function Editor(Object, GroupKey, EditorKey){
   /** Add the public interfaces */
   this.submitClick = function(){
     var parts   = document.part;
-    var passed  = true;
+    passed = true;
     for( var index = 0; index < parts.length; index++ ){
       var part = parts[index];
-      var result = part.test();
-      if(!result){ passed = false; }
+      var result = part.doTest();
+      if(!result.outcome){ passed = false; }
     }
     if(passed){
-      console.log('do the actions');
-    } else {
-      console.log('failure somewhere');
-    }
-  }
-}
+      for( var index = 0; index < parts.length; index++ ) {
+        var part = parts[index];
+        part.doAction();
 
-function Part(Object){
-  var part    = Object;
-  var input   = $('.part-input', part).first();
-  var action  = JSON.parse($('.editor-action', part).text());
-  var test    = JSON.parse($('.editor-test', part).text());
-
-
-  this.test = function(){
-    var value     = $(input).val();
-    var tests     = test.value;
-    var messages  = test.message;
-    var passed    = true;
-    var failKeys  = [];
-    for(var key in tests){
-      if(!this.testRouter(key, tests[key], value)){
-        passed = false;
-        failKeys.push(key);
       }
     }
-    return passed;
-  };
-
-  this.testRouter = function(testKey, testValue, inputValue){
-    switch(testKey){
-      case 'minLength': return this.minLength(testValue, inputValue); break;
-      case 'maxLength': return this.maxLength(testValue, inputValue); break;
-    }
-  };
-
-  this.minLength = function(testValue, inputValue){
-    return inputValue.length >= testValue;
-  };
-  this.maxLength = function(testValue, inputValue){
-    return inputValue.length <= testValue;
-  };
+  }
 }

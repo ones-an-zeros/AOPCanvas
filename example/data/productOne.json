@@ -72,9 +72,10 @@
                   { "value": 8, "text": "Yellow",     "style": { "background-color": "#FFEE9F" } }
                 ],
                 "action": {
-                  "type": 1,
-                  "target": "container",
-                  "attribute": "background"
+                  "type": 3,
+                  "target": "canvasCanvasID",
+                  "attribute": "background",
+                  "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
                 }
               }
             ]

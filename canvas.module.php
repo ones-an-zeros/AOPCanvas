@@ -55,6 +55,7 @@
       private static $javascriptTag = '<script src="%s" type="text/javascript"></script>';
       /** @var array $javascriptFiles An array of the javascript files */
       private static $javascriptFiles = [
+        'javascript/controller/palette/part.object.js',
         'javascript/controller/palette/group.object.js',
         'javascript/controller/palette/editor.object.js',
         'javascript/controller/palette/key.object.js',

@@ -41,7 +41,7 @@
       /**                        HTML CONTAINERS                        */
       /** ************************************************************* */
 
-      protected $containerHTML  = '<span class="editor-part">%s %s %s</span>';
+      protected $containerHTML  = '<span class="editor-part"><span class="part-error" style="display: none;visibility: hidden;"><ul></ul></span>%s %s %s</span>';
 
       protected $labelHTML      = '<label for="%s">%s</label>';
 
@@ -195,7 +195,8 @@
         $this->action = new Action(
           $data->type,
           $data->target,
-          $data->attribute
+          $data->attribute,
+          isset($data->data)?$data->data:null
         );
       }
 
