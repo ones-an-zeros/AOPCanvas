@@ -201,7 +201,7 @@
        * @method  __construct
        * @access  protected
        */
-      protected function __construct(){}
+      protected function __construct(){} 
       /**
        * Clone
        *
