@@ -90,6 +90,52 @@
                   "attribute": "font-family",
                   "data": [ "Georgia, serif", "Arial, Helvetica, sans-serif", "Impact, Charcoal, sans-serif", "Tahoma, Geneva, sans-serif", "Verdana, Geneva, sans-serif" ]
                 }
+              },
+              {
+                "type": 1,
+                "label": "Font Size",
+                "placeholder": "Font Size...",
+                "options": [
+                  { "value": 0,   "text": "10px",             "style": { "font-size": "10px" } },
+                  { "value": 1,   "text": "11px",             "style": { "font-size": "11px" } },
+                  { "value": 2,   "text": "12px",             "style": { "font-size": "12px" } },
+                  { "value": 3,   "text": "13px",             "style": { "font-size": "13px" } },
+                  { "value": 4,   "text": "14px",             "style": { "font-size": "14px" } },
+                  { "value": 5,   "text": "15px",             "style": { "font-size": "15px" } },
+                  { "value": 6,   "text": "16px",             "style": { "font-size": "16px" } },
+                  { "value": 7,   "text": "17px",             "style": { "font-size": "17px" } },
+                  { "value": 8,   "text": "18px",             "style": { "font-size": "18px" } },
+                  { "value": 9,   "text": "19px",             "style": { "font-size": "19px" } },
+                  { "value": 10,  "text": "20px",             "style": { "font-size": "20px" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:0",
+                  "attribute": "font-size",
+                  "data": [ "10px","11px","12px","13px","14px","15px","16px","17px","18px","19px","20px" ]
+                }
+              },
+              {
+                "type": 1,
+                "label": "Color",
+                "placeholder": "Color...",
+                "options": [
+                  { "value": 0, "text": "Blue",       "style": { "color": "#A9C8DA" } },
+                  { "value": 1, "text": "Goldenrod",  "style": { "color": "#F3CE65" } },
+                  { "value": 2, "text": "Gray",       "style": { "color": "#C1BBC0" } },
+                  { "value": 3, "text": "Green",      "style": { "color": "#ACCFBB" } },
+                  { "value": 4, "text": "Ivory",      "style": { "color": "#FFECD4" } },
+                  { "value": 5, "text": "Lilac",      "style": { "color": "#D2C7DC" } },
+                  { "value": 6, "text": "Pink",       "style": { "color": "#F9B4C6" } },
+                  { "value": 7, "text": "White",      "style": { "color": "#FFFFFF" } },
+                  { "value": 8, "text": "Yellow",     "style": { "color": "#FFEE9F" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:0",
+                  "attribute": "color",
+                  "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
+                }
               }
             ]
           },
@@ -130,6 +176,52 @@
                   "target": "editable:0:1",
                   "attribute": "font-family",
                   "data": [ "Georgia, serif", "Arial, Helvetica, sans-serif", "Impact, Charcoal, sans-serif", "Tahoma, Geneva, sans-serif", "Verdana, Geneva, sans-serif" ]
+                }
+              },
+              {
+                "type": 1,
+                "label": "Font Size",
+                "placeholder": "Font Size...",
+                "options": [
+                  { "value": 0,   "text": "10px",             "style": { "font-size": "10px" } },
+                  { "value": 1,   "text": "11px",             "style": { "font-size": "11px" } },
+                  { "value": 2,   "text": "12px",             "style": { "font-size": "12px" } },
+                  { "value": 3,   "text": "13px",             "style": { "font-size": "13px" } },
+                  { "value": 4,   "text": "14px",             "style": { "font-size": "14px" } },
+                  { "value": 5,   "text": "15px",             "style": { "font-size": "15px" } },
+                  { "value": 6,   "text": "16px",             "style": { "font-size": "16px" } },
+                  { "value": 7,   "text": "17px",             "style": { "font-size": "17px" } },
+                  { "value": 8,   "text": "18px",             "style": { "font-size": "18px" } },
+                  { "value": 9,   "text": "19px",             "style": { "font-size": "19px" } },
+                  { "value": 10,  "text": "20px",             "style": { "font-size": "20px" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:1",
+                  "attribute": "font-size",
+                  "data": [ "10px","11px","12px","13px","14px","15px","16px","17px","18px","19px","20px" ]
+                }
+              },
+              {
+                "type": 1,
+                "label": "Color",
+                "placeholder": "Color...",
+                "options": [
+                  { "value": 0, "text": "Blue",       "style": { "color": "#A9C8DA" } },
+                  { "value": 1, "text": "Goldenrod",  "style": { "color": "#F3CE65" } },
+                  { "value": 2, "text": "Gray",       "style": { "color": "#C1BBC0" } },
+                  { "value": 3, "text": "Green",      "style": { "color": "#ACCFBB" } },
+                  { "value": 4, "text": "Ivory",      "style": { "color": "#FFECD4" } },
+                  { "value": 5, "text": "Lilac",      "style": { "color": "#D2C7DC" } },
+                  { "value": 6, "text": "Pink",       "style": { "color": "#F9B4C6" } },
+                  { "value": 7, "text": "White",      "style": { "color": "#FFFFFF" } },
+                  { "value": 8, "text": "Yellow",     "style": { "color": "#FFEE9F" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:1",
+                  "attribute": "color",
+                  "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
                 }
               }
             ]
