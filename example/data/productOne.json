@@ -1,18 +1,15 @@
 {
-  "title" : {
-    "product" :   "Event Tickets",
-    "pallet" :    "Customizations"
-  },
+  "title" : { "product" : "Event Tickets", "pallet" : "Customizations" },
   "canvas" : {
     "width" :     200,
     "height" :    400,
     "editables":  [
       {
         "key" :         { "group": 0, "editor": 0 },
-        "dimension" :   { "width": 180, "height" : 25 },
+        "dimension" :   { "width": "180", "height" : "25" },
         "coordinate" :  { "x" : 10, "y" : 10 },
         "content" :     "Event Name",
-        "style" :       { "text-align" :  "center" },
+        "style" :       { "text-align" :  "center", "line-height": "24px" },
         "parts" :       [ { "editor-part": 0, "type": "content" } ]
       },
       {
@@ -20,7 +17,15 @@
         "dimension" :   { "width": 180, "height" : 25 },
         "coordinate" :  { "x" : 365, "y" : 10 },
         "content" :     "copy &copy; 2016",
-        "style" :       { "text-align" :  "center" },
+        "style" :       { "text-align" :  "center", "line-height": "24px" },
+        "parts" :       [ { "editor-part": 0, "type": "content" } ]
+      },
+      {
+        "key" :         { "group": 0, "editor": 2 },
+        "dimension" :   { "width": 170, "height" : 100 },
+        "coordinate" :  { "x" : 50, "y" : 10 },
+        "content" :     "Description",
+        "style" :       { "text-align" : "left", "line-height": "24px", "padding": "5px" },
         "parts" :       [ { "editor-part": 0, "type": "content" } ]
       }
     ]
@@ -63,12 +68,12 @@
         "label" :   "Text Areas",
         "editors": [
           {
-            "label" : "Event Name",
+            "label" : "Title",
             "parts": [
               {
                 "type": 0,
-                "label": "Event Name",
-                "placeholder": "Event Name",
+                "label": "Title",
+                "placeholder": "Title",
                 "testValues": { "minLength": 5, "maxLength": 15 },
                 "testMessages" : { "minLength": "Event Name to short!", "maxLength": "Event Name to long!" },
                 "action": { "type": 0, "target": "editable:0:0", "attribute": null }
@@ -136,6 +141,151 @@
                   "attribute": "color",
                   "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
                 }
+              },
+              {
+                "type": 1,
+                "label": "Background",
+                "placeholder": "Background...",
+                "options": [
+                  { "value": 0, "text": "Blue",       "style": { "background": "#A9C8DA" } },
+                  { "value": 1, "text": "Goldenrod",  "style": { "background": "#F3CE65" } },
+                  { "value": 2, "text": "Gray",       "style": { "background": "#C1BBC0" } },
+                  { "value": 3, "text": "Green",      "style": { "background": "#ACCFBB" } },
+                  { "value": 4, "text": "Ivory",      "style": { "background": "#FFECD4" } },
+                  { "value": 5, "text": "Lilac",      "style": { "background": "#D2C7DC" } },
+                  { "value": 6, "text": "Pink",       "style": { "background": "#F9B4C6" } },
+                  { "value": 7, "text": "White",      "style": { "background": "#FFFFFF" } },
+                  { "value": 8, "text": "Yellow",     "style": { "background": "#FFEE9F" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:0",
+                  "attribute": "background",
+                  "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
+                }
+              }
+            ]
+          },
+          {
+            "label" : "Description",
+            "parts": [
+              {
+                "type": 0,
+                "label": "Description",
+                "placeholder": "Description",
+                "testValues": { "minLength": 2, "maxLength": 100 },
+                "testMessages" : { "minLength": "Description not long enough!", "maxLength": "Description to long!" },
+                "action": { "type": 0, "target": "editable:0:2", "attribute": null }
+              },
+              {
+                "type": 1,
+                "label": "Font",
+                "placeholder": "Select your Font...",
+                "options": [
+                  { "value": 0, "text": "Georgia",            "style": { "font-family": "Georgia, serif" } },
+                  { "value": 1, "text": "Arial",              "style": { "font-family": "Arial, Helvetica, sans-serif" } },
+                  { "value": 2, "text": "Impact",             "style": { "font-family": "Impact, Charcoal, sans-serif" } },
+                  { "value": 3, "text": "Tahoma",             "style": { "font-family": "Tahoma, Geneva, sans-serif" } },
+                  { "value": 4, "text": "Verdana",            "style": { "font-family": "Verdana, Geneva, sans-serif" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:2",
+                  "attribute": "font-family",
+                  "data": [ "Georgia, serif", "Arial, Helvetica, sans-serif", "Impact, Charcoal, sans-serif", "Tahoma, Geneva, sans-serif", "Verdana, Geneva, sans-serif" ]
+                }
+              },
+              {
+                "type": 1,
+                "label": "Font Size",
+                "placeholder": "Font Size...",
+                "options": [
+                  { "value": 0,   "text": "10px",             "style": { "font-size": "10px" } },
+                  { "value": 1,   "text": "11px",             "style": { "font-size": "11px" } },
+                  { "value": 2,   "text": "12px",             "style": { "font-size": "12px" } },
+                  { "value": 3,   "text": "13px",             "style": { "font-size": "13px" } },
+                  { "value": 4,   "text": "14px",             "style": { "font-size": "14px" } },
+                  { "value": 5,   "text": "15px",             "style": { "font-size": "15px" } },
+                  { "value": 6,   "text": "16px",             "style": { "font-size": "16px" } },
+                  { "value": 7,   "text": "17px",             "style": { "font-size": "17px" } },
+                  { "value": 8,   "text": "18px",             "style": { "font-size": "18px" } },
+                  { "value": 9,   "text": "19px",             "style": { "font-size": "19px" } },
+                  { "value": 10,  "text": "20px",             "style": { "font-size": "20px" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:2",
+                  "attribute": "font-size",
+                  "data": [ "10px","11px","12px","13px","14px","15px","16px","17px","18px","19px","20px" ]
+                }
+              },
+              {
+                "type": 1,
+                "label": "Line Height",
+                "placeholder": "Line Height",
+                "options": [
+                  { "value": 0,   "text": "10px",             "style": { "line-height": "10px" } },
+                  { "value": 1,   "text": "11px",             "style": { "line-height": "11px" } },
+                  { "value": 2,   "text": "12px",             "style": { "line-height": "12px" } },
+                  { "value": 3,   "text": "13px",             "style": { "line-height": "13px" } },
+                  { "value": 4,   "text": "14px",             "style": { "line-height": "14px" } },
+                  { "value": 5,   "text": "15px",             "style": { "line-height": "15px" } },
+                  { "value": 6,   "text": "16px",             "style": { "line-height": "16px" } },
+                  { "value": 7,   "text": "17px",             "style": { "line-height": "17px" } },
+                  { "value": 8,   "text": "18px",             "style": { "line-height": "18px" } },
+                  { "value": 9,   "text": "19px",             "style": { "line-height": "19px" } },
+                  { "value": 10,  "text": "20px",             "style": { "line-height": "20px" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:2",
+                  "attribute": "line-height",
+                  "data": [ "10px","11px","12px","13px","14px","15px","16px","17px","18px","19px","20px" ]
+                }
+              },
+              {
+                "type": 1,
+                "label": "Color",
+                "placeholder": "Color...",
+                "options": [
+                  { "value": 0, "text": "Blue",       "style": { "color": "#A9C8DA" } },
+                  { "value": 1, "text": "Goldenrod",  "style": { "color": "#F3CE65" } },
+                  { "value": 2, "text": "Gray",       "style": { "color": "#C1BBC0" } },
+                  { "value": 3, "text": "Green",      "style": { "color": "#ACCFBB" } },
+                  { "value": 4, "text": "Ivory",      "style": { "color": "#FFECD4" } },
+                  { "value": 5, "text": "Lilac",      "style": { "color": "#D2C7DC" } },
+                  { "value": 6, "text": "Pink",       "style": { "color": "#F9B4C6" } },
+                  { "value": 7, "text": "White",      "style": { "color": "#FFFFFF" } },
+                  { "value": 8, "text": "Yellow",     "style": { "color": "#FFEE9F" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:2",
+                  "attribute": "color",
+                  "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
+                }
+              },
+              {
+                "type": 1,
+                "label": "Background",
+                "placeholder": "Background...",
+                "options": [
+                  { "value": 0, "text": "Blue",       "style": { "background": "#A9C8DA" } },
+                  { "value": 1, "text": "Goldenrod",  "style": { "background": "#F3CE65" } },
+                  { "value": 2, "text": "Gray",       "style": { "background": "#C1BBC0" } },
+                  { "value": 3, "text": "Green",      "style": { "background": "#ACCFBB" } },
+                  { "value": 4, "text": "Ivory",      "style": { "background": "#FFECD4" } },
+                  { "value": 5, "text": "Lilac",      "style": { "background": "#D2C7DC" } },
+                  { "value": 6, "text": "Pink",       "style": { "background": "#F9B4C6" } },
+                  { "value": 7, "text": "White",      "style": { "background": "#FFFFFF" } },
+                  { "value": 8, "text": "Yellow",     "style": { "background": "#FFEE9F" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:2",
+                  "attribute": "background",
+                  "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
+                }
               }
             ]
           },
@@ -146,19 +296,9 @@
                 "type": 0,
                 "label": "Copyright",
                 "placeholder": "copy &copy; 2016",
-                "testValues": {
-                  "minLength": 5,
-                  "maxLength": 15
-                },
-                "testMessages" : {
-                  "minLength": "Your event name must be at least %s characters long!",
-                  "maxLength": "Your event name must be no longer than %s characters long!"
-                },
-                "action": {
-                  "type": 0,
-                  "target": "editable:0:1",
-                  "attribute": null
-                }
+                "testValues": { "minLength": 5, "maxLength": 15 },
+                "testMessages" : { "minLength": "Copyright not long enough!", "maxLength": "Copyright to long!" },
+                "action": { "type": 0, "target": "editable:0:1", "attribute": null }
               },
               {
                 "type": 1,
@@ -221,6 +361,28 @@
                   "type": 3,
                   "target": "editable:0:1",
                   "attribute": "color",
+                  "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
+                }
+              },
+              {
+                "type": 1,
+                "label": "Background",
+                "placeholder": "Background...",
+                "options": [
+                  { "value": 0, "text": "Blue",       "style": { "background": "#A9C8DA" } },
+                  { "value": 1, "text": "Goldenrod",  "style": { "background": "#F3CE65" } },
+                  { "value": 2, "text": "Gray",       "style": { "background": "#C1BBC0" } },
+                  { "value": 3, "text": "Green",      "style": { "background": "#ACCFBB" } },
+                  { "value": 4, "text": "Ivory",      "style": { "background": "#FFECD4" } },
+                  { "value": 5, "text": "Lilac",      "style": { "background": "#D2C7DC" } },
+                  { "value": 6, "text": "Pink",       "style": { "background": "#F9B4C6" } },
+                  { "value": 7, "text": "White",      "style": { "background": "#FFFFFF" } },
+                  { "value": 8, "text": "Yellow",     "style": { "background": "#FFEE9F" } }
+                ],
+                "action": {
+                  "type": 3,
+                  "target": "editable:0:1",
+                  "attribute": "background",
                   "data": [ "#A9C8DA", "#F3CE65", "#C1BBC0", "#ACCFBB", "#FFECD4", "#D2C7DC", "#F9B4C6", "#FFFFFF", "#FFEE9F" ]
                 }
               }
